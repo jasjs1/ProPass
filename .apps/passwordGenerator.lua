@@ -5,25 +5,9 @@ local function generatePassword(length)
         local index = math.random(1, string.len(charset))
         password = password .. string.sub(charset, index, index)
     end
+    
     return password
-end
 
-local password = generatePassword(15)
-print("Your generated password is: " .. password)
-print("Password for: ")
-local passwordFor = io.read()
-print("Type 'save' to save your password!")
-
-local input = io.read()
-
-if input == "save" then
-    local filename = "Saved Password_" .. os.date("%M-%d_%y_%H_%M")
-    local file = io.open(filename, "w")
-
-    print("Password file generated! Check the explorer!")
-    file:write(password, ", ")
-    file:write(passwordFor)
-    file:close()
 end
 
 local password = generatePassword(15)
@@ -52,4 +36,3 @@ while true do
 
     end
 end
-
