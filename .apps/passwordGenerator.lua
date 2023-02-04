@@ -5,10 +5,10 @@ local function generatePassword(length)
         local index = math.random(1, string.len(charset))
         password = password .. string.sub(charset, index, index)
     end
-    
     return password
-
 end
+
+
 
 local password = generatePassword(15)
 print("Your generated password is: " .. password)
