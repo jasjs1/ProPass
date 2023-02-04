@@ -41,15 +41,3 @@ if input == "save" then
     file:close()
 end
 
-
-
-while true do
-
-    local input = io.read()
-
-    if input == "generate new" then
-        generatePassword()
-
-    end
-end
-
