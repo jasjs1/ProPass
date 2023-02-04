@@ -51,7 +51,7 @@ while true do
             local filename = "Saved Password_" .. os.date("%M-%d_%y_%H_%M")
             local file = io.open(filename, "w")
 
-            print("Password file generated! Check the explorer!")
+            print("Password file generated, check the explorer!")
             file:write(password)
             file:close()
         end
