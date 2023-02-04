@@ -28,7 +28,7 @@ print("Type 'save' to save your password!")
 local input = io.read()
 
 if input == "save" then
-    local filename = "Saved Password_" .. os.date("%M-%d_%y_%H_%M")
+    local filename = "Saved Password.txt"
     local file = io.open(filename, "w")
 
     print("Password file generated! Check the explorer!")
