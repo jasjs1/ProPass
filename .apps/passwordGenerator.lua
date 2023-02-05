@@ -17,12 +17,18 @@ while length < 8 or length > 40 do
 end
 
 
-print("Password for: ")
-local passwordFor = io.read()
 
 local password = generatePassword(length)
 print("")
 print("Your generated password is: " .. password)
+
+print("Password for: ")
+local passwordFor = io.read()
+
+print("Login for this website: ")
+local providedLogin = io.read()
+
+print("")
 print("Type 'save' to save your password!")
 
 local input = io.read()
@@ -33,9 +39,11 @@ if input == "save" then
 
     print("Password file generated! Check the explorer!")
     file:write(password, ", ")
-    file:write(passwordFor)
+    file:write(passwordFor, ", ")
+    file:write(providedLogin)
     
     file:close()
+    
 end
 
 while true do
