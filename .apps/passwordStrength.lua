@@ -51,18 +51,18 @@ local function gradePassword()
 
     if strength == 0 then
     
-        print("Very weak")
+        print("Very Weak")
 
     elseif strength == 1 then
 
-        print("Not too secure")
+        print("Not too secure :(")
 
     elseif strength == 2 then
 
-        print("Moderately secure")
+        print("Moderately secure :|")
 
     else 
-        print("Strong!")
+        print("Strong :)")
 
     end
 end
