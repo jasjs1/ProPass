@@ -16,13 +16,18 @@ function passwordStrength(password)
     local hasDigit = false
 
     for i = 1, length do
+
         local char = string.sub(password, i, i)
+
         if string.match(char, '[a-z]') then
             hasLower = true
+
         end
+
         if string.match(char, '[A-Z]') then
             hasUpper = true
         end
+        
         if string.match(char, '[0-9]') then
             hasDigit = true
         end
@@ -46,7 +51,7 @@ local function promptUser()
 end
 
 
-local function gradePassword()
+local function gradePassword(strength)
 
 
     if strength == 0 then
@@ -67,13 +72,9 @@ local function gradePassword()
     end
 end
 
-local strength = promptUser()
-gradePassword(strength)
-
 while true do 
 
-    promptUser()
-
-    gradePassword()
+    local strength = promptUser()
+    gradePassword(strength)
 
 end
