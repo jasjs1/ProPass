@@ -1,4 +1,6 @@
 local function getUserInput()
+
+
     print("Username/email:")
     local username = io.read()
 
@@ -9,6 +11,7 @@ local function getUserInput()
     local passwordFor = io.read()
     
     return username, password, passwordFor
+
 end
 
 local username, password, passwordFor = getUserInput()
@@ -21,6 +24,6 @@ local function writeToFile()
     file:write(passwordFor .. "\n")
 
     file:close()
-end
 
+end
 writeToFile()
