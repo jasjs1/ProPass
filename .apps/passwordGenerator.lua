@@ -34,6 +34,7 @@ if input == "save" then
     print("Password file generated! Check the explorer!")
     file:write(password, ", ")
     file:write(passwordFor)
+    
     file:close()
 end
 
