@@ -38,9 +38,10 @@ if input == "save" then
     local file = io.open(filename, "w")
 
     print("Password file generated! Check the explorer!")
-    file:write(password, ", ")
-    file:write(passwordFor, ", ")
-    file:write(providedLogin)
+
+    file:write("Generated password: " .. password .. "\n")
+    file:write("Password for: " .. passwordFor .. "\n")
+    file:write("Login email: " .. providedLogin .. "\n")
     
     file:close()
     
