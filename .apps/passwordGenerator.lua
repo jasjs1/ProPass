@@ -1,5 +1,5 @@
 local function generatePassword(length)
-    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*();"
+local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*();"
     local password = ""
     for i = 1, length do
         local index = math.random(1, string.len(charset))
@@ -21,6 +21,7 @@ end
 local password = generatePassword(length)
 print("")
 print("Your generated password is: " .. password)
+
 
 print("Password for: ")
 local passwordFor = io.read()
