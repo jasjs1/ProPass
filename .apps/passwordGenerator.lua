@@ -29,12 +29,18 @@ local passwordFor = io.read()
 print("Login for this website: ")
 local providedLogin = io.read()
 
+print("Is this password shared: ")
+local isPaswordShared = io.read()
+
 print("")
 print("Type 'save' to save your password!")
 
 local input = io.read()
 
+
 if input == "save" then
+
+
     local filename = "Saved Password.txt"
     local file = io.open(filename, "w")
 
@@ -43,6 +49,7 @@ if input == "save" then
     file:write("Generated password: " .. password .. "\n")
     file:write("Password for: " .. passwordFor .. "\n")
     file:write("Login email: " .. providedLogin .. "\n")
+    file:write("Is password shared: " .. isPaswordShared .. "\n")
     
     file:close()
     
