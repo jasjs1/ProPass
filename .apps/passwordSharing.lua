@@ -1,6 +1,6 @@
 local function getUserInput()
 
-
+    print("")
     print("Username/email:")
     local username = io.read()
 
