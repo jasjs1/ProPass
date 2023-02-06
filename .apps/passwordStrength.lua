@@ -27,7 +27,7 @@ function passwordStrength(password)
         if string.match(char, '[A-Z]') then
             hasUpper = true
         end
-        
+
         if string.match(char, '[0-9]') then
             hasDigit = true
         end
@@ -41,40 +41,48 @@ function passwordStrength(password)
 end
 
 local function promptUser()
-    print("")
     print("Enter your password below: ")
-    local password = io.read()
+    local userInputtedPassword = io.read()
 
-    local strength = passwordStrength(password)
+    local strength = passwordStrength(userInputtedPassword)
 
-    return strength
+    return userInputtedPassword, strength
 end
 
 
 local function gradePassword(strength)
 
-
     if strength == 0 then
-    
         print("Very Weak")
-
     elseif strength == 1 then
-
         print("Not too secure :(")
-
     elseif strength == 2 then
-
         print("Moderately secure :|")
-
     else 
         print("Strong :)")
+    end
+end
 
+function createFile()
+    local input = io.read()
+    print("Would you like to create a .txt file of this?")
+
+    if input == "yes" then
+        local userInputtedPassword, strength = promptUser()
+
+        local fileName = "PasswordStrength_" .. os.date("%Y_%m_%d_%H_%M") .. ".txt"
+        local file = io.open(fileName, "w")
+
+        file:write(userInputtedPassword .. "\n")
+        file:write(strength .. "\n")
+
+        file:close()
     end
 end
 
 while true do 
-
-    local strength = promptUser()
+    local userInputtedPassword, strength = promptUser()
     gradePassword(strength)
 
+    createFile()
 end
