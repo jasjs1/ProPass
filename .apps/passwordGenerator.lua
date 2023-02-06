@@ -63,6 +63,7 @@ while true do
             local file = io.open(filename, "w")
 
             print("Password file generated, check the explorer!")
+            print("Rerun this file to get a new password.")
             file:write(password)
             file:close()
         end
