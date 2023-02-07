@@ -1,5 +1,6 @@
 # ProPass
-A password geneator.
+A diffrent way to get your secure passwords, ProPass a CLI based password generator and many more features!
+
 
 This is a working password generator.
 But some of the file in this repoisotory are just for fun.
