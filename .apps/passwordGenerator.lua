@@ -17,12 +17,6 @@ while length < 8 or length > 40 do
     length = tonumber(io.read())
 end
 
-
-local password = generatePassword(length)
-print("")
-print("Your generated password is: " .. password)
-
-
 print("Password for: ")
 local passwordFor = io.read()
 
@@ -33,27 +27,25 @@ print("Is this password shared: ")
 local isPaswordShared = io.read()
 
 print("")
-print("Type 'save' to save your password!")
-
-local input = io.read()
 
 
-if input == "save" then
+local password = generatePassword(length)
+print(" ")
+print("Your generated password is: " .. password)
 
 
-    local filename = "Saved Password.txt"
-    local file = io.open(filename, "w")
+local filename = "Saved Password.txt"
+local file = io.open(filename, "w")
 
-    print("Password file generated! Check the explorer!")
+print("Password file generated! Check the explorer!")
 
-    file:write("Generated password: " .. password .. "\n")
-    file:write("Password for: " .. passwordFor .. "\n")
-    file:write("Login email: " .. providedLogin .. "\n")
-    file:write("Is password shared: " .. isPaswordShared .. "\n")
-    
-    file:close()
-    
-end
+file:write("Generated password: " .. password .. "\n")
+file:write("Password for: " .. passwordFor .. "\n")
+file:write("Login email: " .. providedLogin .. "\n")
+file:write("Is password shared: " .. isPaswordShared .. "\n")
+
+file:close()
+
 
 while true do
     local input = io.read()
