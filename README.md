@@ -7,6 +7,7 @@ But some of the file in this repoisotory are just for fun.
 
 Find the app on:
 https://replit.com/@JayceSagvold/ProPass?v=1#ProPass/proPassword/passwordGenerating/main.lua
+(This is not a updated Repl)
 
 
 ## Commands:
