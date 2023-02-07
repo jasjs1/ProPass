@@ -12,10 +12,10 @@ print("")
 print("Enter desired password length (8-40 characters):")
 local length = tonumber(io.read())
 while length < 8 or length > 40 do
+    print("")
     print("Invalid length. Enter a length between 8 and 40:")
     length = tonumber(io.read())
 end
-
 
 
 local password = generatePassword(length)
@@ -76,3 +76,4 @@ while true do
         end
     end
 end
+
