@@ -15,3 +15,10 @@ This is a free platform to use, there is no credit card required to be able to u
 To signup for a ProPass account, please go under the 'account' folder. And locate the 'signup.lua' file then sigup with the feilds that are in the CLI
 
 Using an account, you are being truthful, please don't be using ProPass as a malisuis intents.
+
+## Privacy
+
+We all know using a password generator/manager may be keeping our passwords that they could have access to.
+
+ProPass is a diffrent, ProPass values your privacy. If you don't beleve us, check the source code.
+ProPass does not keep any passwords on a server, however they are kept locally on your IDE. So there will be no chance of someone accessing your passwords on your IDE. Unless someones steals your device.
