@@ -10,6 +10,7 @@ local function fetchProvidedData()
     local websiteHost = io.read()
 
     return loginEmail, password, websiteHost
+
 end
 
 local loginEmail, password, websiteHost = fetchProvidedData()
@@ -21,7 +22,7 @@ local function writeFile()
 
     local input = io.read()
     if input == "yes" then
-        local file = io.open("savedCredentials.txt", "w")
+        local file = io.open("cardientialVault.txt", "w")
 
         file:write("Login email:" .. loginEmail .. "\n")
         file:write("Password: " .. password .. "\n")
