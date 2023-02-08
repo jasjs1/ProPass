@@ -22,3 +22,10 @@ We all know using a password generator/manager may be keeping our passwords that
 
 ProPass is a diffrent, ProPass values your privacy. If you don't beleve us, check the source code.
 ProPass does not keep any passwords on a server, however they are kept locally on your IDE. So there will be no chance of someone accessing your passwords on your IDE. Unless someones steals your device.
+
+
+## Reporting bug proedure
+
+To report a bug you must go into the Issues tab and make a new issue.
+
+This applies to all devs or users.
