@@ -24,6 +24,13 @@ ProPass is a diffrent, ProPass values your privacy. If you don't beleve us, chec
 ProPass does not keep any passwords on a server, however they are kept locally on your IDE. So there will be no chance of someone accessing your passwords on your IDE. Unless someones steals your device.
 
 
+## Subsripton
+
+This is **NOT** a real subscription, this is just for fun.
+
+Please DO **NOT** enter any real information into the files.
+
+
 ## Reporting bug proedure
 
 To report a bug you must go into the Issues tab and make a new issue.
