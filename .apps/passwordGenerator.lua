@@ -1,5 +1,6 @@
 local function generatePassword(length)
-local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*();"
+    local charset =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*();"
     local password = ""
     for i = 1, length do
         local index = math.random(1, string.len(charset))
@@ -28,11 +29,9 @@ local isPaswordShared = io.read()
 
 print("")
 
-
 local password = generatePassword(length)
 print(" ")
 print("Your generated password is: " .. password)
-
 
 local filename = "Saved Password.txt"
 local file = io.open(filename, "w")
@@ -45,7 +44,6 @@ file:write("Login email: " .. providedLogin .. "\n")
 file:write("Is password shared: " .. isPaswordShared .. "\n")
 
 file:close()
-
 
 while true do
     local input = io.read()
@@ -68,4 +66,3 @@ while true do
         end
     end
 end
-
