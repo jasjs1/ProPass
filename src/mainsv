@@ -1,0 +1,135 @@
+local function generatePassword(length)
+    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*();"
+
+    local password = ""
+    for i = 1, length do
+        local index = math.random(2,string.len(charset))
+
+        password = password .. string.sub(charset, index, index)
+
+    end
+    return password
+end
+
+local password = generatePassword(14)
+print("Your generated password: "..password)
+print("Type 'save' to save your password or 'del' to delete the password.")
+
+
+local function deletePasswordLogFiles()
+
+    local input = io.read()
+
+    if input == "delpassfile" then
+        os.execute("rm -f password_*.txt")
+        print("All pasword log file delted!")
+
+    else
+        print("Error: deleting password log files")
+    end
+end
+deletePasswordLogFiles()
+
+
+local function commands()
+
+    local input = io.read()
+
+    if input == "!cmd" then
+
+        print("")
+        print("ProPass commands: ")
+        print("")
+
+        print("clr - clear terminal")
+        print("!cmd - commmands")
+        print("")
+
+        print("While in:")
+
+        print("Making password:")
+        print("save - save the password. (Creates log file)")
+        print("del - deletes the password. (Dosn't create a log file)")
+        print("delpassfile - deltes all password log files (when prompted)")
+
+    else 
+        print("Error: Unknown command")
+        if input == "!cmd" then
+            print("test")
+        end
+    end
+end
+commands()
+
+local function clearConsole()
+
+    local input = io.read()
+
+    if input == "clr" then
+
+        os.execute("cls")
+        os.execute("clear")
+    end
+end
+clearConsole()
+os.execute("sleep 0.00000000000001")
+
+print("Type 'store' to store the password in a .txt file")
+
+
+
+io.write("Enter Password: ")
+
+local userInput = io.read()
+
+local function createFile()
+    local file = io.open("password_" .. os.date("%Y-%m-%d_%H-%M-%S") .. ".txt", "w")
+    print("Password file generated!")
+    file:write(userInput)
+    file:close()
+
+
+end
+createFile()
+
+
+
+local function deleteAllPasswordLogFiles()
+
+    print("Would you like to delete all of the password files? YOU CANNOT GET THE FILES BACK.")
+    print("")
+    print("Type '!del' if you would like to delete all of them.")
+
+    local input = io.read()
+
+    if input == "!del" then
+        local files = io.popen("ls *.txt") -- Use the io.popen() function to list all .txt files in the current directory
+        local fileList = files:read("*all") -- Read the entire output of the command and store it in a variable
+        files:close() -- Close the file handle
+        
+        for file in string.gmatch(fileList, "%S+") do -- Iterate through the list of files
+            os.remove(file) -- Use the os.remove() function to delete each file
+        end
+
+        print("All password files have been deleted.")
+
+    else
+        print("Ok, generated files will not be deleted.")
+
+
+    end
+end
+deleteAllPasswordLogFiles()
+
+while true do 
+
+    local input = io.read()
+
+    if input == "new pass" then
+        generatePassword()
+
+    elseif input == "" then
+        
+
+    end
+end

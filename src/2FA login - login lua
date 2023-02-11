@@ -1,0 +1,16 @@
+local twoFactorFile = "2FactorCode.txt"
+local twoFactorCode = nil
+
+if io.open(twoFactorFile, "r") then
+    print("Your 2 Factor Authentication code:")
+    local input = io.read()
+
+    local file = io.open(twoFactorFile, "r")
+    twoFactorCode = file:read()
+    file:close()
+
+    if input ~= twoFactorCode then
+        print("Incorrect 2 Factor Authentication code.")
+        return
+    end
+end
