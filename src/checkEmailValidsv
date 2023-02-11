@@ -1,7 +1,0 @@
--- function checkEmailValid()
-    
---     local pattern = "^[a-zA-Z0-9%.%%%+%-]+@[a-zA-Z0-9]+%.%w%w%w?%w?$"
-
---     return email:match(pattern) ~= nil
-
--- end
