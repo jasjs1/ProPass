@@ -1,38 +1,31 @@
 # ProPass
-A diffrent way to get your secure passwords, ProPass a CLI based password generator and many more features!
+ProPass is a CLI based password generator and manager, with many features.
 
-Find the app on:
-https://replit.com/@JayceSagvold/ProPass?v=1#ProPass/proPassword/passwordGenerating/main.lua
-(This is not a updated Repl)
+## Features:
+Ability to create password
+Create a .txt file of password
+Safely store your passwords
+Good UX design
 
+## Getting startd:
+To use Neeva you use the CLI interface. This is avabile on Mac, Windows, and even Linux. Read about how to install it below:
 
-## Account terms:
+## Instillation:
 
-By signing up for this account. You will need to add an email, however you will not get emails from us. 
+### 1. Clone the repository onto your machine
+``git clone https://github.com/jSagvold28/ProPass``
 
-This is a free platform to use, there is no credit card required to be able to use.
+### 2. Change into the Navi CLI directory:
+``cd ProPass``
 
-To signup for a ProPass account, please go under the 'account' folder. And locate the 'signup.lua' file then sigup with the feilds that are in the CLI
+### Usage:
+``lua pro_pass.lua``
 
-Using an account, you are being truthful, please don't be using ProPass as a malisuis intents.
+## Contribution to this project:
 
-## Privacy
+This is a 100% open source project. Contribtuions are all ways welcome!
+If you would like to create this code base please fork this repository, and when you are done with the contribution create a ull request (PR)
 
-We all know using a password generator/manager may be keeping our passwords that they could have access to.
+## Bug reporting:
 
-ProPass is a diffrent, ProPass values your privacy. If you don't beleve us, check the source code.
-ProPass does not keep any passwords on a server, however they are kept locally on your IDE. So there will be no chance of someone accessing your passwords on your IDE. Unless someones steals your device.
-
-
-## Subsripton
-
-This is **NOT** a real subscription, this is just for fun.
-
-Please DO **NOT** enter any real information into the files.
-
-
-## Reporting bug proedure
-
-To report a bug you must go into the Issues tab and make a new issue.
-
-This applies to all devs or users.
+If you happen to enocounter any bugs, please report those in the Issues tab on this repository.
