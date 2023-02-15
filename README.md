@@ -2,10 +2,10 @@
 ProPass is a CLI based password generator and manager, with many features.
 
 ## Features:
-Ability to create password
-Create a .txt file of password
-Safely store your passwords
-Good UX design
+* Ability to create password
+* Create a .txt file of password
+* Safely store your passwords
+* Good UX design
 
 ## Getting startd:
 To use Neeva you use the CLI interface. This is avabile on Mac, Windows, and even Linux. Read about how to install it below:
