@@ -24,7 +24,10 @@ To use Neeva you use the CLI interface. This is avabile on Mac, Windows, and eve
 ## Contribution to this project:
 
 This is a 100% open source project. Contribtuions are all ways welcome!
-If you would like to create this code base please fork this repository, and when you are done with the contribution create a ull request (PR)
+
+### Updates to the codebase
+If you would like to update/change any code in this codebase please fork this reposiotry. And when your change is made create a PR with the change. If the change is good, I will accept the PR and push it into the production in the codebase.
+
 
 ## Bug reporting:
 
