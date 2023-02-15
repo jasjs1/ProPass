@@ -21,7 +21,7 @@ end
 print("Password for: ")
 local passwordFor = io.read()
 
-print("Login for this website: ")
+print("Email for this website: ")
 local providedLogin = io.read()
 
 print("Is this password shared: ")
@@ -38,10 +38,11 @@ local file = io.open(filename, "w")
 
 print("Password file generated! Check the explorer!")
 
-file:write("Generated password: " .. password .. "\n")
+file:write("Password: " .. password .. "\n")
 file:write("Password for: " .. passwordFor .. "\n")
 file:write("Login email: " .. providedLogin .. "\n")
 file:write("Is password shared: " .. isPaswordShared .. "\n")
+file:write("Date created: " .. os.date("%M_%d_%y_%h_%m"))
 
 file:close()
 
