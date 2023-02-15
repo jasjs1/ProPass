@@ -10,6 +10,7 @@ local function generatePassword(length)
 end
 
 print("")
+print("ProPass")
 print("Enter desired password length (8-40 characters):")
 local length = tonumber(io.read())
 while length < 8 or length > 40 do
@@ -30,7 +31,6 @@ local isPaswordShared = io.read()
 print("")
 
 local password = generatePassword(length)
-print(" ")
 print("Your generated password is: " .. password)
 
 local filename = "Saved Password.txt"
