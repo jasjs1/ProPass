@@ -23,7 +23,9 @@ while length < 8 or length > 40 do
 end
 
 local function generatePasswordStuff()
+    
     local password = generateSimplePassword(length)
+
     print("Your generated password is: " .. password)
     print("")
     print("Password for:")
@@ -32,7 +34,7 @@ local function generatePasswordStuff()
     local file = io.open("SimplePassword.txt", "w")
     file:write("Generated password: " .. password .. "\n")
     file:write("Password for: " .. passwordFor .. "\n")
-    
+
     file:close()
 end
 
