@@ -32,15 +32,15 @@ end
 if input == "yes" then enable2FA() end
 
 print("")
-print("Would you like to create a security queston? Type 'yes' to create one.")
-print("A security question is if you need to regain access to your account you can.")
+print("Would you like to create a security prompt? Type 'yes' to create one.")
+print("A security prompt is if you need to regain access, delete account, regaub access to account.")
 
 local function securityQuestion()
 
     io.write("Security question: ")
     local securityQuestion = io.read()
 
-    local securityQuestionFile = io.open("SecurityQuestionFile.txt", "w")
+    local securityQuestionFile = io.open("SecurityPromptFile.txt", "w")
 
     securityQuestionFile:write(securityQuestion)
     securityQuestionFile:close()
