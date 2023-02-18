@@ -21,6 +21,11 @@ To use Neeva you use the CLI interface. This is avabile on Mac, Windows, and eve
 ### Usage:
 ``lua pro_pass.lua``
 
+# Security
+
+The security on ProPass is superior, because the files that are generate are not held on a server. They are held LOCALLY on your device. The only way that someone can access your passwords is if someone gets access to your device.
+
+
 ## Contribution to this project:
 
 This is a 100% open source project. Contribtuions are all ways welcome!
