@@ -1,5 +1,3 @@
-print("")
-
 print("Email:")
 local email = io.read()
 
@@ -14,6 +12,7 @@ local signupPassword = io.read()
 
 print("Do you want to have 2 Factor Authentication on?")
 local TwoFactorOn = nil
+-- the variable TwoFactorOn should be set to nil initially
 
 local input = io.read()
 
@@ -21,8 +20,9 @@ local function enable2FA()
 
     file = io.open("2FactorCode.txt", "w")
 
-    io.output():write("Your 2FA code: ")
-    twoFactorCode = io.input():read()
+    io.write("Your 2FA code: ")
+    local twoFactorCode = io.read()
+    -- read the two-factor code using io.read()
 
     file:write(twoFactorCode)
     file:close()
@@ -31,14 +31,37 @@ end
 
 if input == "yes" then enable2FA() end
 
+print("")
+print("Would you like to create a security queston? Type 'yes' to create one.")
+print("A security question is if you need to regain access to your account you can.")
+
+local function securityQuestion()
+
+    io.write("Security question: ")
+    local securityQuestion = io.read()
+
+    local securityQuestionFile = io.open("SecurityQuestionFile.txt", "w")
+
+    securityQuestionFile:write(securityQuestion)
+    securityQuestionFile:close()
+
+end
+
+input = io.read()
+
+if input == "yes" then
+    securityQuestion()
+end
+
 local function fetchProvidedData()
 
-    print("Vaidate that the information below is correct:")
+    print("Validate that the information below is correct:")
     print("")
     print("Email: " .. email)
+    print("Email Provider: " .. emailProvider)
     print("Age: " .. age)
     print("Password: " .. signupPassword)
-    -- print("2FA on: " .. TwofactorAuthentication)
+    -- The 'securityQuestion' and 'TwoFactorOn' variables are not accessible here.
 
     print("Type 'yes' if the information below is correct.")
 
@@ -52,20 +75,22 @@ local function fetchProvidedData()
         file:write("Email Provider: " .. emailProvider .. "\n")
         file:write("Age: " .. age .. "\n")
         file:write("Password: " .. signupPassword .. "\n")
+        -- Security question and 2FA are not included here.
 
         file:close()
 
-        print("ProPass account created! Welcome to a new was to get passwords!")
+        print("")
+        print("ProPass account created! Welcome to a new way to get passwords!")
 
     else
+        print("")
         print("ProPass account was not created.")
 
         if input == "no" then
-            print(
-                "ProPass was not created. This was caused by you inputting no to the validate information.")
-
-            -- getUserInput()
+            print("")
+            print("ProPass was not created. This was caused by you inputting no to the validate information.")
         end
     end
 end
+
 fetchProvidedData()
