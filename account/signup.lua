@@ -1,9 +1,10 @@
 print("")
-print("Name: ")
-local name = io.read()
 
 print("Email:")
 local email = io.read()
+
+print("Email Provider")
+local emailProvider = io.read()
 
 print("Age")
 local age = io.read()
@@ -34,7 +35,6 @@ local function fetchProvidedData()
 
     print("Vaidate that the information below is correct:")
     print("")
-    print("Name: " .. name)
     print("Email: " .. email)
     print("Age: " .. age)
     print("Password: " .. signupPassword)
@@ -48,8 +48,8 @@ local function fetchProvidedData()
 
         local file = io.open("userAccountData.txt", "w")
 
-        file:write("Name: " .. name .. "\n")
         file:write("Email: " .. email .. "\n")
+        file:write("Email Provider: " .. emailProvider .. "\n")
         file:write("Age: " .. age .. "\n")
         file:write("Password: " .. signupPassword .. "\n")
 
