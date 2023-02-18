@@ -29,7 +29,7 @@ print("Is this password shared:")
 local isPasswordShared = io.read()
 
 print("Your generated password is: " .. password)
-
+ 
 local function writeDataToFile()
     local file = io.open("NumberPassword.txt", "w")
 
