@@ -9,7 +9,7 @@ local expDate = io.read()
 
 local function writeDataToFile()
 
-    local file = io.open("CreditCardInformation.txt", "w")
+    local ccFile = io.open("CreditCardInformation.txt", "w")
 
     file:write(creditCardNumber, ", ")
     file:write(ccBackNumber, ", ")
@@ -18,6 +18,5 @@ local function writeDataToFile()
     file:close()
 
     print("File has been created. Check the explorer!")
-
 end
 writeDataToFile()
