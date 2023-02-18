@@ -8,7 +8,7 @@ function passwordStrength(password)
     end
     
     if length >= 12 then 
-        strength = strength + 1
+        strength = strength + 2
     end
 
     local hasLower = false
@@ -34,7 +34,7 @@ function passwordStrength(password)
     end
 
     if hasLower and hasUpper and hasDigit then
-        strength = strength + 1
+        strength = strength + 3
     end
 
     return strength
@@ -53,13 +53,16 @@ end
 local function gradePassword(strength)
 
     if strength == 0 then
-        print("Very Weak")
-    elseif strength == 1 then
-        print("Not too secure :(")
-    elseif strength == 2 then
-        print("Moderately secure :|")
+        print("Password grade: F")
+
+        print("Ways to improve password strength grade: use: capitol letters, numbers, special symbols, lowercase letters, ect.")
+
+    elseif strength == 3 then
+        print("Password grade: C")
+    elseif strength == 4 then
+        print("Pasword grade: B")
     else 
-        print("Strong :)")
+        print("Password grade: A")
     end
 end
 
