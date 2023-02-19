@@ -1,18 +1,22 @@
-print("Email:")
-local email = io.read()
+local function promptUser()
 
-print("Email Provider")
-local emailProvider = io.read()
+    print("Email:")
+    local email = io.read()
 
-print("Age")
-local age = io.read()
+    print("Email Provider")
+    local emailProvider = io.read()
 
-print("Password:")
-local signupPassword = io.read()
+    print("Age")
+    local age = io.read()
 
-print("Do you want to have 2 Factor Authentication on?")
-local TwoFactorOn = nil
--- the variable TwoFactorOn should be set to nil initially
+    print("Password:")
+    local signupPassword = io.read()
+
+    print("Do you want to have 2 Factor Authentication on?")
+    local TwoFactorOn = nil
+
+end
+promptUser()
 
 local input = io.read()
 
@@ -22,7 +26,6 @@ local function enable2FA()
 
     io.write("Your 2FA code: ")
     local twoFactorCode = io.read()
-    -- read the two-factor code using io.read()
 
     file:write(twoFactorCode)
     file:close()
@@ -49,9 +52,7 @@ end
 
 input = io.read()
 
-if input == "yes" then
-    securityQuestion()
-end
+if input == "yes" then securityQuestion() end
 
 local function fetchProvidedData()
 
@@ -88,9 +89,9 @@ local function fetchProvidedData()
 
         if input == "no" then
             print("")
-            print("ProPass was not created. This was caused by you inputting no to the validate information.")
+            print(
+                "ProPass was not created. This was caused by you inputting no to the validate information.")
         end
     end
 end
-
 fetchProvidedData()
