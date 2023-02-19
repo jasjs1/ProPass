@@ -8,6 +8,58 @@ local function generatePassword(length)
     return password
 end
 
+local function gradePassword(password)
+    local score = 0
+    
+
+    if #password >= 8 then
+      score = score + 1
+    end
+    if #password >= 12 then
+      score = score + 1
+    end
+    if #password >= 16 then
+      score = score + 1
+    end
+    
+
+    local hasLower = string.match(password, "[a-z]")
+    local hasUpper = string.match(password, "[A-Z]")
+    local hasDigit = string.match(password, "[0-9]")
+    local hasSymbol = string.match(password, "[!@#$%^&*();]")
+    
+    if hasLower then
+      score = score + 1
+    end
+    if hasUpper then
+      score = score + 1
+    end
+    if hasDigit then
+      score = score + 1
+    end
+    if hasSymbol then
+      score = score + 1
+    end
+    
+
+    if score == 5 then
+      score = score + 1
+    end
+    
+
+    if score == 0 then
+      return "F"
+    elseif score == 1 then
+      return "D"
+    elseif score == 2 then
+      return "C"
+    elseif score == 3 then
+      return "B"
+    elseif score >= 4 then
+      return "A"
+    end
+  end
+
 print("")
 print("Enter your desired password length (8-40 characters):")
 local length = tonumber(io.read())
@@ -39,5 +91,7 @@ local function writeDataToFile()
 
     file:close()
 end
-
 writeDataToFile()
+
+local score = gradePassword(password)
+print("Password grade is: " .. score)
