@@ -19,7 +19,7 @@ The subscription that is offerd in this project. That is **NOT** a real subscrip
 ## Getting started:
 To use Neeva you use the CLI interface. This is avabile on Mac, Windows, and even Linux. Read about how to install it below:
 
-## Instillation:
+## Instilation:
 
 ### 1. Clone the repository onto your machine
 ``git clone https://github.com/jSagvold28/ProPass``
