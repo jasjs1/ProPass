@@ -1,6 +1,6 @@
 --[[
     This file is graded on a grading scale of (A, B, C, D, F)
-    If you DONT want to have a letter grade scale go to the basicPasswordStrength.lua file, this file is weak - extremly strong scale.
+    If you DONT want to have a letter grade scale go to the basicPasswordStrength.lua file, this file is scale on weak - extremly strong scale.
 ]]
 
 function passwordStrength(password)
