@@ -1,12 +1,20 @@
 # ProPass
-ProPass is a CLI based password generator and manager, with many features.
+ProPass is a CLI based password generator and password manager. ProPass has tons of features.
+ProPass is built in the programming language called Lua, this application is 100% open source and in the CLI (command line interface)
 
 ## Features:
 * Ability to create password
 * Create a .txt file of password
 * Safely store your passwords
 * Good UX design
-* Great features
+
+## Why Use ProPass?
+
+ProPass is used in the CLI, which is avaible on Mac, Windows, and even Linux! ProPass is FREE and has tons of features. Also, is 100% open source! Create an account and try out a new way to get your secure passwords!
+
+## Subscription
+
+The subscription that is offerd in this project. That is **NOT** a real subscription, that was just for fun. Please do **NOT** input any real information.
 
 ## Getting started:
 To use Neeva you use the CLI interface. This is avabile on Mac, Windows, and even Linux. Read about how to install it below:
