@@ -11,6 +11,7 @@ local function getUserInput()
 
     print("Recipiant's email: ")
     local recipiantEmail = io.read()
+
     
     return loginEmail, password, appHost, recipiantEmail
 end
