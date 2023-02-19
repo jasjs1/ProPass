@@ -1,4 +1,4 @@
--- password.lua
+
 
 local function generatePassword(length)
     local charset =
@@ -14,7 +14,7 @@ local function generatePassword(length)
   local function gradePassword(password)
     local score = 0
     
-    -- Length criteria
+
     if #password >= 8 then
       score = score + 1
     end
@@ -25,7 +25,7 @@ local function generatePassword(length)
       score = score + 1
     end
     
-    -- Character class criteria
+
     local hasLower = string.match(password, "[a-z]")
     local hasUpper = string.match(password, "[A-Z]")
     local hasDigit = string.match(password, "[0-9]")
@@ -44,12 +44,12 @@ local function generatePassword(length)
       score = score + 1
     end
     
-    -- Bonus points for meeting all criteria
+
     if score == 5 then
       score = score + 1
     end
     
-    -- Convert score to grade
+
     if score == 0 then
       return "F"
     elseif score == 1 then
