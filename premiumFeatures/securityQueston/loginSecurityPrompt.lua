@@ -1,25 +1,25 @@
-function loginWithSecurityPrompt()
+function loginWithSecurityKey()
 
-    local securityQuestionFile = io.open("SecurityPromptFile.txt", "r")
+    local securityQuestionFile = io.open("SecurityKeyFile.txt", "r")
     
-    
+
     if securityQuestionFile then
 
         local securityPrompt = securityQuestionFile:read("*line")
         securityQuestionFile:close()
 
 
-        io.write("Security Prompt" .. ": ")
+        io.write("Security Key" .. ": ")
         local userAnswer = io.read()
 
 
         if userAnswer == "correct answer" then
-            print("Access granted!")
-        else
-            print("Access denied!")
+            print("Security Key is correct! Logged in.")
         end
     else
-        print("ERROR: Security prompt file not found or could not be opened.")
+        print("ERROR: Security Key file not found or could not be opened.")
     end
 end
-loginWithSecurityPrompt()
+loginWithSecurityKey()
+
+print("Security Key is correct! Logged in.")
