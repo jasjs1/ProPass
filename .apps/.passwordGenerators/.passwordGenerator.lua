@@ -79,11 +79,11 @@ local function generatePassword(length)
   local function promptUserForPassword()
     print("")
     print("ProPass")
-    print("Enter desired password length (8-40 characters):")
+    print("Enter desired password length (8-60 characters):")
     local length = tonumber(io.read())
-    while length < 8 or length > 40 do
+    while length < 8 or length > 60 do
       print("")
-      print("Invalid length. Enter a length between 8 and 40:")
+      print("Invalid length. Enter a length between 8 and 60:")
       length = tonumber(io.read())
     end
   
