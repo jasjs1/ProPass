@@ -19,7 +19,7 @@ local function signUpForSubscription()
     local name = io.read()
 
     print("Email:")
-    local sbscriptionEmail = io.read()
+    local subscriptionPassword = io.read()
 
     print("Password:")
     local subscriptionPassword = io.read()
