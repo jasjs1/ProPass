@@ -1,12 +1,14 @@
 local function createSecurityPromptAfterAccountIsCreated()
 
-    io.write("Security prompt: ")
-    local securityPrompt = io.read()
+    io.write("Security Key: ")
+    local securityKey = io.read()
 
-    local securityQuestionFile = io.open("SecurityPromptFile.txt", "w")
+    local securityQuestionFile = io.open("SecurityKeyFile.txt", "w")
 
-    securityQuestionFile:write(securityPrompt)
+    securityQuestionFile:write(securityKey)
     securityQuestionFile:close()
+
+    print("Security Key was created.")
 
 end
 createSecurityPromptAfterAccountIsCreated()
