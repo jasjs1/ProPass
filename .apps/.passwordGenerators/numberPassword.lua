@@ -61,10 +61,10 @@ local function gradePassword(password)
   end
 
 print("")
-print("Enter your desired password length (8-40 characters):")
+print("Enter your desired password length (8-60 characters):")
 local length = tonumber(io.read())
-while length < 8 or length > 40 do
-    print("Invalid length. Please input a length between 8 and 40:")
+while length < 8 or length > 60 do
+    print("Invalid length. Please input a length between 8 and 60:")
     length = tonumber(io.read())
 end
 
