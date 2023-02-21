@@ -1,36 +1,69 @@
+--[[
+    This is the basic password sharing. If you would like to get extra fields to share. That is a subscription.
+]]
+
+local function combineFuncs()
+    
+    print("Email/username:")
+    local emailOrUsername = io.read()
+
+    print("Password:")
+    local sharedPassword = io.read()
+
+    print("Recipients email:")
+    local recipientsEmail = io.read()
+
+    local file = io.open("sharedPassword.txt", "w")
+    file:write("Email/username: " .. emailOrUsername .. "\n")
+    file:write("Password: " .. sharedPassword .. "\n")
+    file:write("Recipients email: " .. recipientsEmail .. "\n")
+    file:close()
+
+end
+
 local function getUserInput()
 
-    print("Login email: ")
-    local loginEmail = io.read()
+    print("Email/username:")
+    local emailOrUsername = io.read()
 
-    print("Password: ")
-    local password = io.read()
+    print("Password:")
+    local sharedPassword = io.read()
 
-    print("Website/app host: ")
-    local appHost = io.read()
+    print("Recipients email:")
+    local recipientsEmail = io.read()
 
-    print("Recipiant's email: ")
-    local recipiantEmail = io.read()
+    return emailOrUsername, sharedPassword, recipientsEmail
+
+end
+
+local emailOrUsername, sharedPassword, recipientsEmail = getUserInput()
+local function writeToFile(emailOrUsername, sharedPassword, recipientsEmail)
+
+    local file = io.open("sharedPassword.txt", "w")
+    file:write("Email/username: " .. emailOrUsername .. "\n")
+    file:write("Password: " .. sharedPassword .. "\n")
+    file:write("Recipients email: " .. recipientsEmail .. "\n")
+    file:close()
+
+    print("Shared password created!")
+
+end
+writeToFile(emailOrUsername, sharedPassword, recipientsEmail)
+
+while true do 
+
+    print("")
+    print("Type 'new' to create a new shared password")
+    print("")
 
     
-    return loginEmail, password, appHost, recipiantEmail
+    local input = io.read()
+
+    if input == "new" then
+        combineFuncs()
+
+    elseif input == "" then
+        print("Invalid input")
+        -- break
+    end
 end
-
-local loginEmail, password, appHost, recipiantEmail = getUserInput()
-
-local function writeToFile()
-    local file = io.open("sharedPassword.txt", "w")
-    local fileName = file
-
-    file:write("Login email: " .. loginEmail .. "\n")
-    file:write("Password: " .. password .. "\n")
-    file:write("Recipiant of password: " .. recipiantEmail .. "\n")
-    file:write("App host: " .. appHost .. "\n")
-
-    file:close()
-end
-
-writeToFile()
-
-print("File has been created! Check the explorer.")
-print("The file is called: sharedPassword.txt")
