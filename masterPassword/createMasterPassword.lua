@@ -8,6 +8,8 @@ local function writeDataToFile()
     masterPasswordFile:write("Date Created: " .. os.date("%m_%d_%y"))
     
     masterPasswordFile:close()
-end
 
+    print("Master password file created! File name: MasterPassword.txt")
+
+end
 writeDataToFile()
