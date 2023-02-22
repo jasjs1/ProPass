@@ -35,5 +35,4 @@ local function writeDataToFile()
     masterPasswordFile:close()
 
 end
-
 writeDataToFile()
