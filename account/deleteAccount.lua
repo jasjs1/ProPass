@@ -14,6 +14,7 @@ local function remove2FAGeneratedFiles()
     end
 end
 
+print("")
 print("Are you sure you want to delete your ProPass account? All of your passwords will be deleted, they will be un recoverable.")
 print("Type 'yes' to delete account:")
 
@@ -22,4 +23,6 @@ local input = io.read()
 if input == "yes" then
     deleteAllPasswordGenerateFiles()
     remove2FAGeneratedFiles()
+
+    print("Sorry to see you go :(")
 end
