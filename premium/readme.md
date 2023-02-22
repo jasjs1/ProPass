@@ -1,8 +1,9 @@
-# Important notice:
-This notice is regarding, the subscription for ProPass
+# IMPORTANT
 
-This is **NOT** a real subscription, this is just for fun.
+This notice is regarding the subscription for ProPass
 
-Please DO **NOT** enter any real information into the files.
+This subscription is **not** a real subscription.
 
- 
+Please **do not** input any real information to ProPass subscription
+
+### This is JUST for fun.
