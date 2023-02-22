@@ -66,14 +66,66 @@ local function gradePassword(strength)
     if strength == 0 then
         print("Weak")
 
+        width = 20 
+        value = 1/3
+        max_value = 1
+        
+        num_chars = math.floor(value / max_value * width)
+        
+        graph = "[" .. string.rep("/", num_chars) .. string.rep(" ", width - num_chars) .. "]"
+        
+        graph_with_value = string.format("%s %.2f", graph, value, "%")
+        
+        print(graph_with_value)
+        
+
         print("Ways to improve password strength grade: use: capitol letter, numbers, special symbols, lowercase letters, ect.")
 
     elseif strength == 3 then
         print("Modeartly Secure")
+
+        width = 20 
+        value = 2/3
+        max_value = 1
+        
+        num_chars = math.floor(value / max_value * width)
+        
+        graph = "[" .. string.rep("/", num_chars) .. string.rep(" ", width - num_chars) .. "]"
+        
+        graph_with_value = string.format("%s %.2f", graph, value, "%")
+        
+        print(graph_with_value)
+
+
     elseif strength == 4 then
         print("Strong")
+
+        width = 20 
+        value = 2.5/3
+        max_value = 1
+        
+        num_chars = math.floor(value / max_value * width)
+        
+        graph = "[" .. string.rep("/", num_chars) .. string.rep(" ", width - num_chars) .. "]"
+        
+        graph_with_value = string.format("%s %.2f", graph, value, "%")
+        
+        print(graph_with_value)
+
     else 
         print("Extremly Strong!")
+
+        width = 20 
+        value = 3/3
+        max_value = 1
+        
+        num_chars = math.floor(value / max_value * width)
+        
+        graph = "[" .. string.rep("/", num_chars) .. string.rep(" ", width - num_chars) .. "]"
+        
+        graph_with_value = string.format("%s %.2f", graph, value, "%")
+        
+        print(graph_with_value)
     end
 end
 
