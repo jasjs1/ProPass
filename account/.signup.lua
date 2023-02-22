@@ -40,10 +40,6 @@ end
 
 if input == "yes" then enable2FA() end
 
-print("")
-print("Would you like to create a security prompt? Type 'yes' to create one.")
-print("A security prompt is if you need to regain access, delete account, regaub access to account.")
-
 local function securityQuestion()
 
     io.write("Security question: ")
@@ -60,6 +56,19 @@ input = io.read()
 
 if input == "yes" then securityQuestion() end
 
+local function recoveryCode()
+
+    print("Recovery Code (required)")
+    io.write("Your Recover Code: ")
+    local recoveryCode = io.read()
+
+    local recoveryCodeFile = io.open("RecoveryMode.txt", "w")
+
+    file:write(recoveryCode)
+
+    file:close()
+end
+
 local function fetchProvidedData()
 
     print("Validate that the information below is correct:")
@@ -68,6 +77,9 @@ local function fetchProvidedData()
     print("Email Provider: " .. emailProvider)
     print("Age: " .. age)
     print("Password: " .. signupPassword)
+    print("2FA: " .. twoFactorCode)
+    print("Security Queston: " .. securityQuestion)
+    print("Recovery Code: " .. recoveryCode)
 
 
     print("Type 'yes' if the information below is correct.")
@@ -82,7 +94,9 @@ local function fetchProvidedData()
         file:write("Email Provider: " .. emailProvider .. "\n")
         file:write("Age: " .. age .. "\n")
         file:write("Password: " .. signupPassword .. "\n")
-
+        file:write("2FA code: " .. twoFactorCode .. "\n")
+        file:write("Security Queston: " .. securityQuestion .. "\n")
+        file:write("Recovery code: " .. recoveryCode .. "\n")
 
         file:close()
 
@@ -96,7 +110,7 @@ local function fetchProvidedData()
         if input == "no" then
             print("")
             print(
-                "ProPass was not created. This was caused by you inputting no to the validate information.")
+                "ProPass was not created. This was caused by you inputting no to the validate information")
         end
     end
 end
