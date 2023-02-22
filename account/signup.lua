@@ -7,7 +7,13 @@ local function promptUser()
     local emailProvider = io.read()
 
     print("Age")
-    local age = io.read()
+    local age = tonumber(io.read())
+
+    if age and age <= 12 then
+        print("You are not able to use ProPass. You must be be 13 or older.")
+        return
+    end
+
 
     print("Password:")
     local signupPassword = io.read()
