@@ -36,3 +36,8 @@ Please DO **NOT** enter any real information into the files.
 To report a bug you must go into the Issues tab and make a new issue.
 
 This applies to all devs or users.
+
+
+## Hiring
+
+ProPass is not looking to hire any employees, thank you for expressing interest of working for me!
