@@ -68,7 +68,7 @@ local function fetchProvidedData()
     print("Email Provider: " .. emailProvider)
     print("Age: " .. age)
     print("Password: " .. signupPassword)
-    -- The 'securityQuestion' and 'TwoFactorOn' variables are not accessible here.
+
 
     print("Type 'yes' if the information below is correct.")
 
@@ -82,7 +82,7 @@ local function fetchProvidedData()
         file:write("Email Provider: " .. emailProvider .. "\n")
         file:write("Age: " .. age .. "\n")
         file:write("Password: " .. signupPassword .. "\n")
-        -- Security question and 2FA are not included here.
+
 
         file:close()
 
