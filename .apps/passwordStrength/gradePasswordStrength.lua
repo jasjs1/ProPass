@@ -49,12 +49,14 @@ function passwordStrength(password)
 end
 
 local function promptUser()
+    
     print("Enter your password below: ")
     local userInputtedPassword = io.read()
 
     local strength = passwordStrength(userInputtedPassword)
 
     return userInputtedPassword, strength
+    
 end
 
 
@@ -63,14 +65,65 @@ local function gradePassword(strength)
     if strength == 0 then
         print("Password grade: F")
 
+        width = 20 
+        value = 1/3
+        max_value = 1
+        
+        num_chars = math.floor(value / max_value * width)
+        
+        graph = "[" .. string.rep("/", num_chars) .. string.rep(" ", width - num_chars) .. "]"
+        
+        graph_with_value = string.format("%s %.2f", graph, value, "%")
+        
+        print(graph_with_value)
+
         print("Ways to improve password strength grade: use: capitol letters, numbers, special symbols, lowercase letters, ect.")
 
     elseif strength == 3 then
         print("Password grade: C")
+        print("Modeartly Secure")
+
+        width = 20 
+        value = 2/3
+        max_value = 1
+        
+        num_chars = math.floor(value / max_value * width)
+        
+        graph = "[" .. string.rep("/", num_chars) .. string.rep(" ", width - num_chars) .. "]"
+        
+        graph_with_value = string.format("%s %.2f", graph, value, "%")
+        
+        print(graph_with_value)
+
     elseif strength == 4 then
         print("Pasword grade: B")
+
+        width = 20 
+        value = 2.5/3
+        max_value = 1
+        
+        num_chars = math.floor(value / max_value * width)
+        
+        graph = "[" .. string.rep("/", num_chars) .. string.rep(" ", width - num_chars) .. "]"
+        
+        graph_with_value = string.format("%s %.2f", graph, value, "%")
+        
+        print(graph_with_value)
+
     else 
         print("Password grade: A")
+
+        width = 20 
+        value = 3/3
+        max_value = 1
+        
+        num_chars = math.floor(value / max_value * width)
+        
+        graph = "[" .. string.rep("/", num_chars) .. string.rep(" ", width - num_chars) .. "]"
+        
+        graph_with_value = string.format("%s %.2f", graph, value, "%")
+        
+        print(graph_with_value)
     end
 end
 
