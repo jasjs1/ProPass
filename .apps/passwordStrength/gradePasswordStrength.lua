@@ -66,7 +66,7 @@ local function gradePassword(strength)
         print("Password grade: F")
 
         width = 20 
-        value = 1/3
+        value = 0.5/3
         max_value = 1
         
         num_chars = math.floor(value / max_value * width)
