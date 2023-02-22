@@ -19,7 +19,7 @@ local function promptUser()
     local signupPassword = io.read()
 
     print("Do you want to have 2 Factor Authentication on?")
-    local TwoFactorOn = nil
+    local twoFactorOn = nil
 
 end
 promptUser()
