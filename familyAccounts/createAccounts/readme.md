@@ -1,6 +1,8 @@
 # Create your accounts here.
 
-Right now there is no limit.
+Of this time 2.23.23 at 8:40pm (the time of this commit) there is no limit of the family-related accounts.
+
+### This is a preimum feature.
 
 ## Features:
 * Have child accounts
