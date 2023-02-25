@@ -3,6 +3,8 @@
 Welcome to the child account. This this strictly for children, this is easy to use.
 
 
+
+
 # Terms of Service
 
 Effective Date: February 25th, 2023 at 7:45 AM
