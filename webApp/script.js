@@ -8,7 +8,7 @@ const generateBtn = document.querySelector(".generate-btn");
 const characters = {
     lowercase: "abcdefghijklmnopqrstuvwxyz",
     uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    numbers: "0123456789",
+    numbers: "01234567890",
     symbols: "!$%&|[](){}:;.,*+-#@<>~"
 }
 
