@@ -1,6 +1,8 @@
+# create TOS.md for child accoubnt
+
 # Terms of Service
 
-Effective Date: February 25th, 2023 at 7:45 AM
+Effective Date: Febuary 25th, 2023 at 8:00:00am
 
 Welcome to ProPass! These Terms of Service ("Terms") apply to your use of ProPass password manager ("ProPass" or the "Service") provided by {Company Name} ("we," "our," or "us"). By using the Service, you agree to these Terms, so please read them carefully.
 
