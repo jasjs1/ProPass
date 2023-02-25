@@ -1,5 +1,3 @@
-# create TOS.md for child accoubnt
-
 # Terms of Service
 
 Effective Date: February 25th, 2023 at 7:45 AM
