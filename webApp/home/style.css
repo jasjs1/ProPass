@@ -8,6 +8,11 @@
 
 body {
   background-color: #f2ff00;
+  
+}
+
+head {
+  text-align: center;
 }
 
 nav {
@@ -91,10 +96,11 @@ button {
   background: #000;
   cursor: pointer;
   border-radius: 50px;
+  font-size: larger;
 }
 
 button:hover {
-  background: #fff;
+  background: #f30f0f;
   color: #000;
 }
 
@@ -112,7 +118,7 @@ button:hover {
 }
 
 .documentation-wrapper a {
-  font-size: large;
+  font-size: larger;
   color: rgb(240, 231, 231);
   text-decoration: underline;
   text-decoration: none;
