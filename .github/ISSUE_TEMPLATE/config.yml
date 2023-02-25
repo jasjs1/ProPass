@@ -1,5 +1,5 @@
 blank_issues_enabled: true
 contact_links:
   - name: Bug report
-    url: https://github.com/jSagvold28/ProPass/tree/main/.github
+    url: https://github.com/jSagvold28/ProPass/blob/main/.github/ISSUE_TEMPLATE/bug.md
     about: Create a bug report
