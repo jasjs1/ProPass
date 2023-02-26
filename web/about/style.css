@@ -1,0 +1,66 @@
+/* style.css */
+
+body {
+    background-color: #4f4f4f;
+    color: wheat;
+}
+
+nav {
+  height: 70px;
+  background: #000000;
+  font-weight: 100;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem calc((100vw - 1300px) / 2);
+}
+
+
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 100;
+  padding: 10px;
+  padding-bottom: 30px;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60;
+}
+
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 100;
+  padding: 0 1.5rem;
+}
+.social-links {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
+
+.about-main {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.social-links {
+
+    box-shadow: 10px;
+
+}
+
+nav a:hover {
+  color: #f2ff00;
+}
+
+.redirect-home {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 30;
+  padding: 20;
+}
