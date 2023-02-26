@@ -1,4 +1,4 @@
-## Terms of Service for Corporate Account
+# Terms of Service for Corporate Account
 
 ### TOS Effective as of: Febuary 26th, 2023 at the time of 12:26pm
 
