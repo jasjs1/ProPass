@@ -15,6 +15,9 @@ repeat
   end
 until false
 
+io.write("Corperation password: ")
+local corperationPassword = io.read()
+
 io.write("Employee size: ")
 local employeeSize = io.read()
 
