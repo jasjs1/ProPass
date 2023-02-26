@@ -5,7 +5,7 @@
 * You **must** be a **real** corepartion with **real** employees(s)
 * Maximum of 35 employees in the MVP verison
 
-## Terms of Service for Corporate Account
+# Terms of Service for Corporate Account
 
 ### TOS Effective as of: Febuary 26th, 2023 at the time of 12:26pm
 
