@@ -119,13 +119,32 @@ button:hover {
 }
 
 .documentation-wrapper a {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
   font-size: larger;
   color: rgb(240, 231, 231);
   text-decoration: underline;
-  text-decoration: none;
+
 }
 
 .documentation-wrapper a:hover {
+  color: yellow;
+}
+
+.notion-progress {
+  padding: 20px;
+  padding-top: 15px;
+}
+
+.notion-progress a {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+  font-size: larger;
+  color: white;
+  text-decoration: underline;
+}
+
+.notion-progress a:hover {
   color: yellow;
 }
 
