@@ -1,5 +1,5 @@
 # ProPass Corperation File Storage Service
-#  # Supported File Types
+#  Supported File Types
 
 
 ### Just to name some of the most popular:
