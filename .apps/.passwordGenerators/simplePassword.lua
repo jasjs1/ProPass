@@ -31,7 +31,7 @@ local function generatePasswordStuff()
   print("")
   print("Your generated password is: " .. password)
 
-  local file = io.open("SimplePassword.txt", "w")
+  local file = io.open("SimplePassword.txt", "a")
   file:write("Generated password: " .. password .. "\n")
   file:write("Password for: " .. passwordFor .. "\n")
 
