@@ -26,7 +26,7 @@ local function generateSimplePassword(length)
     print("")
     print("Your generated password is: " .. password)
   
-    local file = io.open("SimplePassword.txt", "w")
+    local file = io.open("CORP_SimplePassword.txt", "a")
     file:write("Generated password: " .. password .. "\n")
     file:write("Password for: " .. passwordFor .. "\n")
   
