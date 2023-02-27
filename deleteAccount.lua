@@ -25,4 +25,7 @@ if input == "yes" then
     remove2FAGeneratedFiles()
 
     print("Sorry to see you go :(")
+    print("")
+
+    print("How can we improve: ")
 end
