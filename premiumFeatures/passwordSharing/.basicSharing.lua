@@ -39,10 +39,12 @@ end
 local emailOrUsername, sharedPassword, recipientsEmail = getUserInput()
 local function writeToFile(emailOrUsername, sharedPassword, recipientsEmail)
 
-    local file = io.open("sharedPassword.txt", "a")
+    local file = io.open("sharedPasswordPREM.txt", "a")
     file:write("Email/username: " .. emailOrUsername .. "\n")
     file:write("Password: " .. sharedPassword .. "\n")
     file:write("Recipients email: " .. recipientsEmail .. "\n")
+    file:write("Date created: " .. os.date("%M_%d_%y_%H_%m") .. "\n")
+    file:write("" .. "\n")
     file:close()
 
     print("Shared password created!")
