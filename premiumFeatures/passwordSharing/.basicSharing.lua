@@ -39,7 +39,7 @@ end
 local emailOrUsername, sharedPassword, recipientsEmail = getUserInput()
 local function writeToFile(emailOrUsername, sharedPassword, recipientsEmail)
 
-    local file = io.open("sharedPassword.txt", "w")
+    local file = io.open("sharedPassword.txt", "a")
     file:write("Email/username: " .. emailOrUsername .. "\n")
     file:write("Password: " .. sharedPassword .. "\n")
     file:write("Recipients email: " .. recipientsEmail .. "\n")
