@@ -18,8 +18,8 @@ Copy code
 User Account Data:
 [User account data here]
 
-`` User Account Data:`` 
-[User account data here]
+`` User Account Data:
+[User account data here] ``
 
 Saved Passwords:
 [Saved passwords here]
