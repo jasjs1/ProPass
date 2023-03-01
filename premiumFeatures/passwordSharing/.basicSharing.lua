@@ -54,8 +54,6 @@ while true do
 
     print("")
     print("Type 'new' to create a new shared password")
-    print("")
-
     
     local input = io.read()
 
