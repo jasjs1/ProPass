@@ -1,3 +1,12 @@
+local function generateANewPassword(length)
+    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+!@#$%^&*();"
+    local password = ""
+    for i = 1, length do
+        local index = math.random(1, string.len(charset))
+        password = password .. string.sub(charset, index, index)
+    end
+    return password
+end
 
 local function writeDataToFile(password, passwordWebHost)
     local file = io.open("generatedPassword.txt", "a")
@@ -20,14 +29,17 @@ local function generatePassword()
     io.write("Where will the password be used: ")
     local passwordWebHost = io.read()
 
-    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+!@#$%^&*();"
-    local password = ""
-    for i = 1, length do
-        local index = math.random(1, string.len(charset))
-        password = password .. string.sub(charset, index, index)
-    end
+    local password = generateANewPassword(length)
 
+    print("If you would like to generate a new password. Type 'new'.")
     print("Generated password: " .. password)
+
+    local input = io.read()
+
+    if input == "new" then
+        password = generateANewPassword(length)
+        print("New password: " .. password)
+    end
 
     writeDataToFile(password, passwordWebHost)
 end
