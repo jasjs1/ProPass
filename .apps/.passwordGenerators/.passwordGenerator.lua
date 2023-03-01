@@ -9,7 +9,7 @@ local function generateANewPassword(length)
 end
 
 local function writeDataToFile(password, passwordWebHost)
-    local file = io.open("generatedPassword.txt", "a")
+    local file = io.open("savedPassword.txt", "a")
     file:write("Generated saved password: " .. password .. "\n")
     file:write("Place that password is used: " .. passwordWebHost .. "\n")
     file:write("\n")
