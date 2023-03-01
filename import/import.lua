@@ -1,5 +1,5 @@
 function writePasswordToFile()
-    
+
     repeat
 
         io.write("Password: ")
@@ -16,6 +16,6 @@ function writePasswordToFile()
 
         io.write("Enter 'stop' to quit or any other key to continue: ")
         local input = io.read()
-    until input == "stop"
+        until input == "stop"
 end
 writePasswordToFile()
