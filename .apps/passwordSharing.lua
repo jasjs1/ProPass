@@ -4,13 +4,13 @@
 
 local function combineFuncs()
     
-    print("Email/username:")
+    io.write("Account email/username: ")
     local emailOrUsername = io.read()
 
-    print("Password:")
+    io.write("Password: ")
     local sharedPassword = io.read()
 
-    print("Recipients email:")
+    io.write("Recipients email: ")
     local recipientsEmail = io.read()
 
     local file = io.open("sharedPassword.txt", "w")
@@ -23,17 +23,16 @@ end
 
 local function getUserInput()
 
-    print("Email/username:")
+    io.write("Email/username: ")
     local emailOrUsername = io.read()
 
-    print("Password:")
+    io.write("Password: ")
     local sharedPassword = io.read()
 
-    print("Recipients email:")
+    io.write("Recipients email: ")
     local recipientsEmail = io.read()
 
     return emailOrUsername, sharedPassword, recipientsEmail
-
 end
 
 local emailOrUsername, sharedPassword, recipientsEmail = getUserInput()
