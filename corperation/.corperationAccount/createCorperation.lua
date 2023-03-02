@@ -6,7 +6,17 @@ repeat
   local corporationHQEmail = io.read()
 
   -- Check if the email matches the pattern
-  if corporationHQEmail:match(".+@.+%.com$") or corporationHQEmail:match(".+@.+%.org$") then
+  if corporationHQEmail:match(".+@.+%.com$") or corporationHQEmail:match(".+@.+%.org$") 
+  or corporationHQEmail:match(".+@.+%.edu$")
+  or corporationHQEmail:match(".+@.+%.net$")
+  or corporationHQEmail:match(".+@.+%.io$")
+  or corporationHQEmail:match(".+@.+%.me$")
+  or corporationHQEmail:match(".+@.+%.ca$")
+  or corporationHQEmail:match(".+@.+%.tech$")
+  or corporationHQEmail:match(".+@.+%.ai$")
+  or corporationHQEmail:match(".+@.+%.studio$")
+  or corporationHQEmail:match(".+@.+%.gov$")
+  then
     -- Valid email address
     break
   else
