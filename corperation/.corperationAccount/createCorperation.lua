@@ -59,11 +59,21 @@ local function createEmployee()
   local employeeName = io.read()
 
   repeat
-    io.write("Employee email address: ")
-    local employeeEmail = io.read()
-
+    io.write("Employee email adress: ")
+    local employeeEmailAdress = io.read()
+  
     -- Check if the email matches the pattern
-    if employeeEmail:match(".+@.+%.com$") or employeeEmail:match(".+@.+%.org$") then
+    if employeeEmailAdress:match(".+@.+%.com$") or employeeEmailAdress:match(".+@.+%.org$") 
+    or employeeEmailAdress:match(".+@.+%.edu$")
+    or employeeEmailAdress:match(".+@.+%.net$")
+    or employeeEmailAdress:match(".+@.+%.io$")
+    or employeeEmailAdress:match(".+@.+%.me$")
+    or employeeEmailAdress:match(".+@.+%.ca$")
+    or employeeEmailAdress:match(".+@.+%.tech$")
+    or employeeEmailAdress:match(".+@.+%.ai$")
+    or employeeEmailAdress:match(".+@.+%.studio$")
+    or employeeEmailAdress:match(".+@.+%.gov$")
+    then
       -- Valid email address
       break
     else
