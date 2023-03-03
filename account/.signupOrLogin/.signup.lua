@@ -1,79 +1,65 @@
-local function promptUser()
+local userEmail
+local emailProvider
+local age
+local signupPassword
+local twoFactorCode
+local securityQuestion
 
+local function promptUser()
     print("Email:")
-    local email = io.read()
+    userEmail = io.read()
 
     print("Email Provider")
-    local emailProvider = io.read()
+    emailProvider = io.read()
 
     print("Age")
-    local age = tonumber(io.read())
+    age = tonumber(io.read())
 
     if age and age <= 12 then
         print("You are not able to use ProPass. You must be be 13 or older.")
         return
     end
 
-
     print("Password:")
-    local signupPassword = io.read()
+    signupPassword = io.read()
 
     print("Do you want to have 2 Factor Authentication on?")
-    local twoFactorOn = nil
-
+    twoFactorOn = nil
 end
+
 promptUser()
 
 local input = io.read()
 
 local function enable2FA()
+    io.write("Your 2FA code: ")
+    twoFactorCode = io.read()
 
     file = io.open("2FactorCode.txt", "w")
-
-    io.write("Your 2FA code: ")
-    local twoFactorCode = io.read()
-
     file:write(twoFactorCode)
     file:close()
-
 end
 
-if input == "yes" then enable2FA() end
-
-local function securityQuestion()
-
-    io.write("Security question: ")
-    local securityQuestion = io.read()
-
-    local securityQuestionFile = io.open("SecurityPromptFile.txt", "w")
-
-    securityQuestionFile:write(securityQuestion)
-    securityQuestionFile:close()
-
+if input == "yes" then
+    enable2FA()
 end
-
-input = io.read()
-
-if input == "yes" then securityQuestion() end
 
 local function recoveryCode()
-
     print("Recovery Code (required)")
+    print("")
     io.write("Your Recover Code: ")
     local recoveryCode = io.read()
 
     local recoveryCodeFile = io.open("RecoveryMode.txt", "w")
-
-    file:write(recoveryCode)
-
-    file:close()
+    recoveryCodeFile:write(recoveryCode)
+    recoveryCodeFile:close()
 end
+recoveryCode()
 
 local function fetchProvidedData()
-
     print("Validate that the information below is correct:")
     print("")
-    print("Email: " .. email)
+    print("Email: " .. userEmail)
     print("Email Provider: " .. emailProvider)
     print("Age: " .. age)
     print("Password: " .. signupPassword)
@@ -81,13 +67,11 @@ local function fetchProvidedData()
     print("Security Queston: " .. securityQuestion)
     print("Recovery Code: " .. recoveryCode)
 
-
     print("Type 'yes' if the information below is correct.")
 
     local input = io.read()
 
     if input == "yes" then
-
         local file = io.open("userAccountData.txt", "w")
 
         file:write("Email: " .. email .. "\n")
@@ -102,16 +86,23 @@ local function fetchProvidedData()
 
         print("")
         print("ProPass account created! Welcome to a new way to get passwords!")
-
     else
         print("")
         print("ProPass account was not created.")
 
         if input == "no" then
             print("")
-            print(
-                "ProPass was not created. This was caused by you inputting no to the validate information")
+            print("ProPass was not created. This was caused by you inputting no to the validate information")
         end
     end
 end
-fetchProvidedData()
+
+print("")
+print("Do you agree to the ProPass TOS and privacy policy?")
+print("Type 'yes' if you do agree.")
+
+local input = io.read()
+
+if input == "yes" then
+    fetchProvidedData()
+end
