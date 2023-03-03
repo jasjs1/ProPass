@@ -21,7 +21,7 @@ repeat
     break
   else
     -- Invalid email address
-    print("Invalid email address. Please enter a valid email address that ends with .com or .org.")
+          print("Invalid email address. Please enter a valid email address.")
   end
 until false
 
