@@ -17,6 +17,9 @@
         <a href="https://example.com/about/index.html">Story of ProPass</a>
 
       </div>
+
+      <div class="background"></div>
+      
     </nav>
     <section class="hero">
       <div class="hero-container">
@@ -31,10 +34,20 @@
           <div class="documentation-wrapper">
             <a href="https://inky-sunscreen-538.notion.site/ProPass-Documentation-7a2602f2d8744278aded77bfc3750eec" target="_blank">Documentation Link</a>
           </div>
-
-          </div>
         </div>
-      </div>
-    </section>
-  </body>
+        <input type="checkbox" id="darkmode-toggle"/>
+        <label for="darkmode-toggle"
+    </div>
+    <body class="dark-theme">
+  </section>
+  <script>
+    const toggleSwitch = document.querySelector('#darkmode-toggle');
+    
+    toggleSwitch.addEventListener('change', function() {
+      document.body.classList.toggle('dark-theme');
+    });
+    </script>
+    
+</body>
+
 </html>
