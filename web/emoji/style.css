@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #password {
+    font-size: 3em;
+    text-align: center;
+    margin: 2em 0;
+  }
+  
+  #generate-btn {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5em;
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #generate-btn:hover {
+    background-color: #0062cc;
+  }
+  
