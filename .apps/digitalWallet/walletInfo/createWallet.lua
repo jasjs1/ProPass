@@ -48,7 +48,7 @@ local function createWallet()
 
     print("Creating a 2FA key is required to use Digital Wallet.")
     io.write("2FA key: ")
-    local walletTwoFAKey = io.read()
+    local wallet2FACode = io.read()
     local walletFactorFile = io.open("wallet2FACode.txt", "w")
     walletFactorFile:write(walletTwoFAKey .. "\n")
     walletFactorFile:close()
