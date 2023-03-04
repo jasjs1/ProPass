@@ -18,7 +18,7 @@ You mussstt havve aa active ProPass Preimum subscription
 
 Go to the walletInfo folder then, go to the createWallet.lua file to create a Digital Wallet.
 
-# Folder contents
+# Folder contents 
 
 ## To add, view total money
 
