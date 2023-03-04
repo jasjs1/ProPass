@@ -37,7 +37,14 @@ local function createWallet()
     until false
     
     io.write("Password: ")
-    local password = io.read()
+    local signupPassword = ""
+    repeat
+        signupPassword = io.read()
+        if #signupPassword < 8 then
+            print("Password must be at least 8 characters long. Please try again.")
+            io.write("Password (at least 8 characters): ")
+        end
+    until #signupPassword >= 8
 
     print("Creating a 2FA key is required to use Digital Wallet.")
     io.write("2FA key: ")
