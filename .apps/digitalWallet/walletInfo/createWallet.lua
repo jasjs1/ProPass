@@ -39,6 +39,13 @@ local function createWallet()
     io.write("Password: ")
     local password = io.read()
 
+    print("Creating a 2FA key is required to use Digital Wallet.")
+    io.write("2FA key: ")
+    local walletTwoFAKey = io.read()
+    local walletFactorFile = io.open("wallet2FACode.txt", "w")
+    walletFactorFile:write(walletTwoFAKey .. "\n")
+    walletFactorFile:close()
+
     io.write("Address: ")
     local address = io.read()
 
@@ -47,6 +54,15 @@ local function createWallet()
 
     if countryOfResidence == "united states" then
         print("Wallet created!")
+
+        local file = io.open("DigitalWalletFile.txt", "w")
+        file:write("Name: " .. name .. "\n")
+        file:write("Age: " .. age .. "\n")
+        file:write("Email: " .. email .. "\n")
+        file:write("Password: " .. password .. "\n")
+        file:write("Adress: " .. address .. "\n")
+        file:write("COR: " .. countryOfResidence .. "\n")
+        file:close()
     else
         print("You must be in the United States to use ProPass Digital Wallet.")
     end
