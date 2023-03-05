@@ -13,4 +13,14 @@ local function login()
 
 
 end
-login()
+
+local premiumFile = io.open("subscriptionInfo.txt")
+
+if premiumFile ~= nil then
+    login()
+else
+    print("")
+    print("A subscirption is required to use all aspects of ProPass Digitial Wallet")
+    print("")
+    return
+end
