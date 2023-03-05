@@ -10,12 +10,12 @@ assignees:
 ---
 
 ### Describe the Issue
-
 Please describe what is happening
 
-### Reproduction Steps
 
+### Reproduction Steps
 Please provide a set of steps to reproduce the issue
+1. 
 
 ### Expected Behavior
 
