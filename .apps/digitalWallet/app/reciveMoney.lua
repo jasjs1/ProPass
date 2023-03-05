@@ -19,4 +19,14 @@ local function reciveMoney()
 
     print("Total money after money recived: " .. "$" .. totalMoney)
 end
-reciveMoney()
+
+local premiumFile = io.open("subscriptionInfo.txt")
+
+if premiumFile ~= nil then
+    reciveMoney()
+else
+    print("")
+    print("A subscirption is required to use all aspects of ProPass Digitial Wallet")
+    print("")
+    return
+end
