@@ -48,5 +48,4 @@ local function getNewPass()
     end
     writeDataToFile(password, passwordWebHost)
 end
-
 getNewPass()
