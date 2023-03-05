@@ -23,6 +23,5 @@ Please provide a set of steps to reproduce the issue
 
 Please include relevant information about your system
 
-* Unity Version:
 * Operating System:
-* ...
+* Other Notes:
