@@ -9,8 +9,16 @@ local function createWallet()
 
     if age and age <= 17 then
         print("You are not able to use ProPass Digital Wallet. You must be 18 or older.")
-        return
-    end
+        returnlocal premiumFile = io.open("subscriptionInfo.txt")
+
+if premiumFile ~= nil then
+    createWallet()
+else
+    print("")
+    print("A subscirption is required to use all aspects of ProPass Digitial Wallet")
+    print("")
+    return
+end    end
 
     repeat
         io.write("Email: ")
