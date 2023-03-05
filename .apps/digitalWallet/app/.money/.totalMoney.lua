@@ -1,15 +1,28 @@
+local function fetchTotalMoney()
 
-local file = io.open("totalMoney.txt", "r")
+  local file = io.open("totalMoney.txt", "r")
 
-if file then
+  if file then
+  
+    local moneyContents = file:read("*all")
+  
+    print("")
+    print("Total money: $" .. moneyContents)
+    print("")
+  
+    file:close()
+  else
+    print("Error: unable to open file")
+  end  
+end
 
-  local moneyContents = file:read("*all")
+local premiumFile = io.open("subscriptionInfo.txt")
 
-  print("")
-  print("Total money: $" .. moneyContents)
-  print("")
-
-  file:close()
+if premiumFile ~= nil then
+    fetchTotalMoney()
 else
-  print("Error: unable to open file")
+    print("")
+    print("A subscirption is required to use all aspects of ProPass Digitial Wallet")
+    print("")
+    return
 end
