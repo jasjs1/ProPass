@@ -13,7 +13,8 @@ local function getNewPassword()
         length = tonumber(io.read())
     end
 
-    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*();:"
+    local charset =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*();:"
     local password = ""
     for i = 1, length do
         local index = math.random(1, string.len(charset))
@@ -34,7 +35,8 @@ local function generateNew()
         length = tonumber(io.read())
     end
 
-    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*();:"
+    local charset =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*();:"
     local password = ""
     for i = 1, length do
         local index = math.random(1, string.len(charset))
@@ -45,16 +47,15 @@ local function generateNew()
 end
 
 print(" ") -- spacer
-print("Generated password: " .. password)
+print("New password: " .. password)
+print("Type 'new' if you would like to get a new password.")
 
-print("Type 'new' if you do not like the password that has been generated above.")
-print("You can only do this one more time. Use wisely...")
 
-local input = io.read()
-
-if input == "new" then
-    password = generateNew()
-
-    print("2nd generated password: " .. password)
-
+while true do
+    local input = io.read()
+    if input == "new" then
+        password = generateNew()
+        print("New password " .. password)
+        print("Type 'new' if you would like to get a new password.")
+    end
 end
