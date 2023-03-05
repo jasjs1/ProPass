@@ -6,7 +6,7 @@ local function reciveMoney()
     local moneyRecvied = io.read()
 
     local function addMoneyToAccount(totalMoney)
-        local addMoney = totalMoney + moneyRecvied 
+        local totalMoney = totalMoney + moneyRecvied 
 
         local file = io.open("totalMoney.txt", "w")
         file:write(totalMoney)
@@ -16,6 +16,7 @@ local function reciveMoney()
     -- initialize totalMoney to a default value
     local totalMoney = 0
     addMoneyToAccount(totalMoney)
-end
 
+    print("Total money after money recived: " .. "$" .. totalMoney)
+end
 reciveMoney()
