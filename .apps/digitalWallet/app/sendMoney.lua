@@ -34,4 +34,13 @@ local function sendMoney()
     print(subtractedTotalMoney)
 end
 
-sendMoney()
+local premiumFile = io.open("subscriptionInfo.txt")
+
+if premiumFile ~= nil then
+    sendMoney()
+else
+    print("")
+    print("A subscirption is required to use all aspects of ProPass Digitial Wallet")
+    print("")
+    return
+end
