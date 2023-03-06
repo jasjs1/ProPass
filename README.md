@@ -1,5 +1,5 @@
 # ProPass
-A diffrent way to get your secure passwords, ProPass a CLI based password generator and many more features!
+"Secure all your passwords like a pro with ProPass - the ultimate CLI-based password manager packed with powerful features."
 
 Find the app on:
 https://replit.com/@JayceSagvold/ProPass?v=1#ProPass/proPassword/passwordGenerating/main.lua
