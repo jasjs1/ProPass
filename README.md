@@ -1,5 +1,5 @@
 # ProPass
-"Secure all your passwords like a pro with ProPass - the ultimate CLI-based password manager packed with powerful features."
+Secure all your passwords like a pro with ProPass - the ultimate CLI-based password manager packed with powerful features.
 
 Find the app on:
 https://replit.com/@JayceSagvold/ProPass?v=1#ProPass/proPassword/passwordGenerating/main.lua
