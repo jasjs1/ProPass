@@ -4,20 +4,53 @@ local age = 0
 local twoFactorCode = ""
 
 local function userPrompt()
-    io.write("Email: ")
-    email = io.read()
+    repeat
+        print("Email:")
+        local email = io.read()
+
+        if email:match(".+@.+%.com$") or email:match(".+@.+%.org$") 
+        or email:match(".+@.+%.edu$")
+        or email:match(".+@.+%.net$")
+        or email:match(".+@.+%.io$")
+        or email:match(".+@.+%.me$")
+        or email:match(".+@.+%.ca$")
+        or email:match(".+@.+%.tech$")
+        or email:match(".+@.+%.ai$")
+        or email:match(".+@.+%.studio$")
+        or email:match(".+@.+%.gov$")
+        then
+            break
+        else
+            print("Invalid email address. Please use a proper TLD, if you don't know what a TLD is, please check tld.md")
+        end
+    until false
+
+    repeat
+        print("Password (8-100 characters):")
+        local password = io.read()
+
+        if #password < 8 or #password > 100 then
+            print("Password must be between 8 to 100 characters.")
+        else
+            break
+        end
+    until false
 
     io.write("Use of this account: ")
     useOfThisAccount = io.read()
 
     io.write("Age: ")
     age = tonumber(io.read())
-
+    
     if age and age <= 12 then
         print("You are not able to use ProPass. You must be 13 or older.")
         return
     end
 end
+    
+    -- proceed with the rest of the code here
+    
+
 
 userPrompt()
 
@@ -74,6 +107,7 @@ local function fetchProvidedData()
 
     multipleAccountFile:write("Email: " .. email .. "\n")
     multipleAccountFile:write("Usage of this account: " .. useOfThisAccount .. "\n")
+    multipleAccountfile:write("password: " .. password .. "\n")
     multipleAccountFile:write("Age: " .. age .. "\n")
     multipleAccountFile:write("Two factor code: " .. twoFactorCode .. "\n")
     multipleAccountFile:write("Security Prompt: " .. securityQ .. "\n")
