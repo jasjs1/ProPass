@@ -1,3 +1,17 @@
+
+-- Check if subscriptionInfo.txt exists
+if io.open("subscriptionInfo.txt", "r") == nil then
+  print("You need to have an active subscription.")
+else
+  os.execute("sleep 1.1")
+  print("checking for subscription file...")
+  os.execute("sleep 0.0005")
+  print("Subscription found!")
+  -- continue with the rest of your code here
+end
+
+
+
 local function generateANewPassword(length)
     local password = ""
     local charset =
@@ -12,118 +26,62 @@ local function generateANewPassword(length)
     return password
 end
 
-local function getNewPass()
-    print("") -- Just a separator separating the above contents from the Visual Studio Code extension generated text
-    io.write("Enter desired password length (between 8 and 60): ")
-    local length = tonumber(io.read())
-
-    if not length or length < 8 or length > 60 then
-        print(
-            "Invalid password length. Please enter a number between 8 and 60 characters.")
-        return
-    end
-
-    io.write("Where will the password be used: ")
-    local passwordWebHost = io.read()
-
-    local password = generateANewPassword(length)
-
-    print("")
-    print("Generated password: " .. password)
-    print("")
-
-    local function writeDataToFile(password, passwordWebHost)
-        local file = io.open("savedPassword.txt", "a")
-        file:write("Generated saved password: " .. password .. "\n")
-        file:write("Place that password is used: " .. passwordWebHost .. "\n")
-        file:write("\n")
-        file:close()
-    end
-    writeDataToFile(password, passwordWebHost)
+-- Define function to get new password
+function getNewPass()
+  print("Generating new password...")
+  os.execute("sleep 0.5")
+  print("Your new password is: " .. generatePassword())
 end
 
-function passwordStrengthGraph(password)
-    local score = 0
-
-    -- password length
-    local length = string.len(password)
-    if length < 5 then
-        score = score + 5
-    elseif length >= 5 and length <= 7 then
-        score = score + 10
-    elseif length >= 8 and length <= 11 then
-        score = score + 20
-    else
-        score = score + 25
-    end
-
-    -- password complexity
-    local uppercase = false
-    local lowercase = false
-    local number = false
-    local symbol = false
-
-    for i = 1, length do
-        local char = string.sub(password, i, i)
-        if not uppercase and char >= "A" and char <= "Z" then
-            score = score + 5
-            uppercase = true
-        elseif not lowercase and char >= "a" and char <= "z" then
-            score = score + 5
-            lowercase = true
-        elseif not number and char >= "0" and char <= "9" then
-            score = score + 5
-            number = true
-        elseif not symbol and char ~= " " and char ~= "\t" and char ~= "\n" and
-            not (char >= "0" and char <= "9") and
-            not (char >= "a" and char <= "z") and
-            not (char >= "A" and char <= "Z") then
-            score = score + 5
-            symbol = true
-        end
-    end
-
-    -- password score
-    local result = ""
-    if score >= 90 then
-        result = "VERY STRONG"
-    elseif score >= 80 then
-        result = "STRONG"
-    elseif score >= 70 then
-        result = "GOOD"
-    elseif score >= 60 then
-        result = "AVERAGE"
-    elseif score >= 50 then
-        result = "WEAK"
-    else
-        result = "VERY WEAK"
-    end
-
-    return result
+-- Define function to display password strength graph
+function passwordStrengthGraph()
+  print("Generating password strength graph...")
+  os.execute("sleep 0.7")
+  print("Here is your password strength graph:")
+  os.execute("sleep 0.5")
+  print(generatePasswordStrengthGraph())
 end
 
+-- Define function to grade password with letter grade
+function gradePasswordWithLetterGrade()
+  print("Please input password to grade:")
+  local password = io.read()
+  local grade = gradePassword(password)
+  print("Password grade: " .. grade)
+  local letterGrade = letterGradeFromNumericGrade(grade)
+  print("Password letter grade: " .. letterGrade)
+end
 
-while true do
-    -- commands
+-- Check if subscriptionInfo.txt exists
+if io.open("subscriptionInfo.txt", "r") == nil then
+  print("You need to have an active subscription.")
+else
+  os.execute("sleep 1.1")
+  print("checking for subscription file...")
+  os.execute("sleep 0.0005")
+  print("Subscription found!")
+  -- continue with the rest of your code here
+
+  -- Define variable to hold user input
+  local input
+
+  -- Display menu options to user and wait for input
+  while input ~= "!quit" do
     print("")
-    print("ProPasss Dashboard Commands")
-    print("")
-
-    print("Generate password: !new")
-    print("Password security (graph) !psg")
-    print("Passowrd security (letter grade) !PSG")
-
-    print("")
-
-    local input = io.read()
+    
+    print("!new - Generate a new password")
+    print("!psg - Display password strength graph")
+    print("!PSG - Grade password with letter grade")
+    input = io.read()
 
     if input == "!new" then
-        getNewPass()
+      getNewPass()
     elseif input == "!psg" then
-        passwordStrengthGraph()
+      passwordStrengthGraph()
     elseif input == "!PSG" then
-    gradePasswordWithLetterGrade()
+      gradePasswordWithLetterGrade()
     else
       print("Error: Incorrect input, please input one of the commands below:")
     end
+  end
 end
