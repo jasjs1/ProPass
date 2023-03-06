@@ -121,7 +121,7 @@ while true do
         getNewPass()
     elseif input == "!psg" then
         passwordStrengthGraph()
-    elseif input == "!PSG"
+    elseif input == "!PSG" then
     gradePasswordWithLetterGrade()
     else
       print("Error: Incorrect input, please input one of the commands below:")
