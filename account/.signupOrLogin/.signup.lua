@@ -1,16 +1,30 @@
 local userEmail
-local emailProvider
 local age
 local signupPassword
 local twoFactorCode
 local securityQuestion
 
 local function promptUser()
-    print("Email:")
-    userEmail = io.read()
+    repeat
+        print("Email:")
+        local userEmail = io.read()
 
-    print("Email Provider")
-    emailProvider = io.read()
+        if userEmail:match(".+@.+%.com$") or userEmail:match(".+@.+%.org$") 
+        or userEmail:match(".+@.+%.edu$")
+        or userEmail:match(".+@.+%.net$")
+        or userEmail:match(".+@.+%.io$")
+        or userEmail:match(".+@.+%.me$")
+        or userEmail:match(".+@.+%.ca$")
+        or userEmail:match(".+@.+%.tech$")
+        or userEmail:match(".+@.+%.ai$")
+        or userEmail:match(".+@.+%.studio$")
+        or userEmail:match(".+@.+%.gov$")
+        then
+            break
+        else
+            print("Invalid email address. Please use a proper TLD, if you don't know what a TLD is, please check tld.md")
+        end
+    until false
 
     print("Age")
     age = tonumber(io.read())
@@ -20,8 +34,16 @@ local function promptUser()
         return
     end
 
-    print("Password:")
-    signupPassword = io.read()
+    repeat
+        print("Password (8-100 characters):")
+        local subscriptionPassword = io.read()
+
+        if #subscriptionPassword < 8 or #subscriptionPassword > 100 then
+            print("Password must be between 8 to 100 characters.")
+        else
+            break
+        end
+    until false
 
     print("Do you want to have 2 Factor Authentication on?")
     twoFactorOn = nil
@@ -60,7 +82,6 @@ local function fetchProvidedData()
     print("Validate that the information below is correct:")
     print("")
     print("Email: " .. userEmail)
-    print("Email Provider: " .. emailProvider)
     print("Age: " .. age)
     print("Password: " .. signupPassword)
     print("2FA: " .. twoFactorCode)
@@ -75,7 +96,6 @@ local function fetchProvidedData()
         local file = io.open("userAccountData.txt", "w")
 
         file:write("Email: " .. email .. "\n")
-        file:write("Email Provider: " .. emailProvider .. "\n")
         file:write("Age: " .. age .. "\n")
         file:write("Password: " .. signupPassword .. "\n")
         file:write("2FA code: " .. twoFactorCode .. "\n")
