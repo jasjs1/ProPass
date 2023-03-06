@@ -41,8 +41,16 @@ local function signUpForSubscription()
         end
     until false
 
-    print("Password:")
-    local subscriptionPassword = io.read()
+    repeat
+        print("Password (8-100 characters):")
+        local subscriptionPassword = io.read()
+
+        if #subscriptionPassword < 8 or #subscriptionPassword > 100 then
+            print("Password must be between 8 to 100 characters.")
+        else
+            break
+        end
+    until false
 
     print("Payment type:")
     local paymentType = io.read()
