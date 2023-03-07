@@ -12,11 +12,11 @@ end
 
 local function getNewPass()
     print("") -- Just a separator separating the above contents from the Visual Studio Code extension generated text
-    io.write("Enter desired password length (between 8 and 60): ")
+    io.write("Enter desired password length (between 8 and 80): ")
     local length = tonumber(io.read())
 
-    if not length or length < 8 or  sblength > 60 then
-        print("Invalid password length. Please enter a number between 8 and 60 characters.")
+    if not length or length < 8 or length > 80 then
+        print("Invalid password length. Please enter a number between 8 and 80 characters.")
         return 
     end
 
@@ -43,6 +43,7 @@ local function getNewPass()
         local file = io.open("savedPassword.txt", "a")
         file:write("Generated saved password: " .. password .. "\n")
         file:write("Place that password is used: " .. passwordWebHost .. "\n")
+        file:write("Audit date: " .. os.date("$M_%d_%yyyy_%H_%m"))
         file:write("\n")
         file:close()
     end
