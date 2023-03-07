@@ -43,7 +43,7 @@ local function getNewPass()
         local file = io.open("savedPassword.txt", "a")
         file:write("Generated saved password: " .. password .. "\n")
         file:write("Place that password is used: " .. passwordWebHost .. "\n")
-        file:write("Audit date: " .. os.date("$M_%d_%yyyy_%H_%m"))
+        file:write("Audit date: " .. os.date("%M_%d_%y_%H_%m"))
         file:write("\n")
         file:close()
     end
