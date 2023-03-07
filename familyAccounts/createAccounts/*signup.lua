@@ -1,3 +1,8 @@
+
+-- Subscription required for this feature
+
+
+
 local function createUser()
     print("")
 
@@ -89,6 +94,16 @@ local function createUser()
     createUserFile()
 end
 
-while true do 
-    createUser()
+local familyAccountfile = io.open("subscriptionInfo.txt", "r")
+
+if familyAccountfile == nil then
+    print("ERROR: No subscription file, you must have an active ProPass Premium subscription to use family account.")
+else
+    print("Subscription file is active.")
+    print("")
+    print("")
+
+    while true do
+        createUser()
+    end
 end
