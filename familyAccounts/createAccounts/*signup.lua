@@ -1,8 +1,4 @@
 
--- Subscription required for this feature
-
-
-
 local function createUser()
     print("")
 
