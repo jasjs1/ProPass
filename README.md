@@ -38,7 +38,7 @@ To report a bug you must go into the Issues tab and make a new issue.
 This applies to all devs or users.
 
 
-## Hiring
+## Hiring status
 
 ProPass is not looking to hire any employees, thank you for expressing interest of working for me!
 
@@ -47,3 +47,22 @@ ProPass is not looking to hire any employees, thank you for expressing interest 
 * ProPass home page: http://127.0.0.1:5500/webApp/home/index.html
 * ProPass Documentation: https://inky-sunscreen-538.notion.site/ProPass-Documentation-7a2602f2d8744278aded77bfc3750eec
 * ProPass Progress: https://inky-sunscreen-538.notion.site/2ef8fe6fd02d477e9a9a7866d22c7530?v=1b3eae5741284965b290c8f11a95f66d
+
+# Premium Signup TLD (top-level-domains)
+
+## Supported domains:
+.com
+.org
+.edu
+.net
+.io
+.me
+.ca
+.tech
+.ai
+.studios
+.gov
+
+last updated March 6th, 2023 at 7:12am
+
+Please create a Issue if you would like me to add any more TLD support for signup.
