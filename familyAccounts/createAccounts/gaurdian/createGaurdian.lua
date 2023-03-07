@@ -62,6 +62,6 @@ local function writeDataToGaurdianFile(age, gaurdianEmail, gauridanPassword, oth
     gaurdianFile:close()
 end
 
-
+print("Guardian account created, go to the previous fie and look for .singup.lua to create a ProPass account for your child.")
 
 if subscriptionFile ~= nil then createGuardianAccount() end
