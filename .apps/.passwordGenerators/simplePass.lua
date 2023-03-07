@@ -34,6 +34,7 @@ local function generatePasswordStuff()
   local file = io.open("SimplePassword.txt", "a")
   file:write("Generated password: " .. password .. "\n")
   file:write("Password for: " .. passwordFor .. "\n")
+  file:write("Audit date: " .. os.date("$M_%d_%yyyy_%H_%m"))
 
   file:close()
 end
