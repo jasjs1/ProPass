@@ -1,7 +1,7 @@
 
 -- Check if subscriptionInfo.txt exists
 if io.open("subscriptionInfo.txt", "r") == nil then
-  print("You need to have an active subscription.")
+  print("You need to have a Preimum account, so you are not able to use ProPass Dashboard")
 else
   os.execute("sleep 1.1")
   print("checking for subscription file...")
