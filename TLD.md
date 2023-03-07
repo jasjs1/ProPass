@@ -12,6 +12,7 @@
 .ai
 .studios
 .gov
+.co
 
 last updated March 6th, 2023 at 7:12am
 
