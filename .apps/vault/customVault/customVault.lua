@@ -1,5 +1,5 @@
 
-io.write("Type of vault storage:")
+io.write("Type of vault storage: ")
 local typeOfStorage = io.read()
 
 io.write("Contents to vault: ")
@@ -15,6 +15,7 @@ local function writeData()
     file:write("Vault storage: " .. typeOfStorage .. "\n")
     file:write("contents of storage: " .. cardentialsToVault .. "\n")
     file:write("website/url host that vault is stored: " .. websiteOrURLHost .. "\n")
+    file:write("Date created: " .. os.date("%M_%d_%y_%h_%m"))
 
     file:close()
     
