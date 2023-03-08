@@ -88,6 +88,7 @@ local function writeDataToFile()
     file:write("Password: " .. password .. "\n")
     file:write("Password for: " .. passwordFor .. "\n")
     file:write("Is password shared: " .. isPasswordShared .. "\n")
+    file:write("Audit date: " .. os.date("$M_%d_%yyyy_%H_%m"))
 
     file:close()
 end
@@ -95,3 +96,28 @@ writeDataToFile()
 
 local score = gradePassword(password)
 print("Password grade is: " .. score)
+
+function copyToClipboard(str)
+  -- Determine the platform
+  local isWindows = package.config:sub(1,1) == '\\'
+
+  -- Create a temporary file
+  local tmpfile = os.tmpname()
+
+  -- Write the string to the file
+  local file = io.open(tmpfile, "w")
+  file:write(str)
+  file:close()
+
+  -- Execute the copy command
+  if isWindows then
+      os.execute("cmd.exe /c echo.|set /p=\"" .. tmpfile .. "\" | clip")
+  else
+      os.execute("cat " .. tmpfile .. " | pbcopy")
+  end
+
+  -- Delete the temporary file
+  os.remove(tmpfile)
+end
+copyToClipboard(password)
+print("Password copied to clipboard!")
