@@ -28,6 +28,31 @@ local function getNewPass()
     print("If you would like to generate a new password. Type 'new'.")
     print("Generated password: " .. password)
 
+    function copyToClipboard(str)
+        -- Determine the platform
+        local isWindows = package.config:sub(1,1) == '\\'
+    
+        -- Create a temporary file
+        local tmpfile = os.tmpname()
+    
+        -- Write the string to the file
+        local file = io.open(tmpfile, "w")
+        file:write(str)
+        file:close()
+    
+        -- Execute the copy command
+        if isWindows then
+            os.execute("cmd.exe /c echo.|set /p=\"" .. tmpfile .. "\" | clip")
+        else
+            os.execute("cat " .. tmpfile .. " | pbcopy")
+        end
+    
+        -- Delete the temporary file
+        os.remove(tmpfile)
+    end
+      copyToClipboard(password)
+      print("Password copied to clipboard!")
+
     local input = io.read()
 
     while input == "new" do
@@ -43,7 +68,7 @@ local function getNewPass()
         local file = io.open("savedPassword.txt", "a")
         file:write("Generated saved password: " .. password .. "\n")
         file:write("Place that password is used: " .. passwordWebHost .. "\n")
-        file:write("Audit date: " .. os.date("%M_%d_%y_%H_%m"))
+        file:write("Audit date: " .. os.date("$M_%d_%yyyy_%H_%m"))
         file:write("\n")
         file:close()
     end
