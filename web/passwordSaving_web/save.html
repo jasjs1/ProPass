@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Password Saver | ProPasss</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+        <h1>ProPass</h1>
+		<h2>Password Entry System</h2>
+        <div class="form-group">
+            <label class="label" for="usage-input">Usage:</label>
+            <input class="input" type="text" id="usage-input" name="usage" required>
+        </div>
+
+		<form id="password-form">
+			<div class="form-group">
+				<label class="label" for="password-input">Password:</label>
+				<input class="input" type="password" id="password-input" name="password" required>
+			</div>
+			<button class="btn" type="submit">Save Password</button>
+		</form>
+		<div class="file">
+			<label class="file-label">Saved Passwords:</label>
+			<div id="password-list"></div>
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
