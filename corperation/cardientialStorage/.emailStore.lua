@@ -1,7 +1,9 @@
 file = io.open("EmailStore.txt", "a")
 
-io.output():write("Email: ")
-inputStore = io.input()file:read()
+io.write("Email: ")
+inputStore = io.read()
 
-file:write(inputStore)
+file:write("Email: " .. inputStore .. "\n")
+file:write("Date audited: " .. os.date("%M_%d_%y_%H_%m") .. "\n")
 file:close()
+ 
