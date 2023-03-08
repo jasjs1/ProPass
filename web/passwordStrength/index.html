@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ProPass - Password Strength Analysis</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>ProPass</h1>
+      <h2>Password Strength Analysis</h2>
+      <label for="password">Enter your password:</label>
+      <input type="password" id="password" onkeyup="checkPassword()">
+      <div id="meter">
+        <div id="strength"></div>
+      </div>
+      <p id="percent"></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
