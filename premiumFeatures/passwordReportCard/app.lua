@@ -67,8 +67,8 @@ local function fetchReportCard()
     print("GRADE:")
     print("")
 
-    io.write("Password score: ", passwordScore, "\n")
-    io.write("Password grade: ", letterGrade, "\n")
+    io.write("Password score: " ..  passwordScore .. "%" ..  "\n")
+    io.write("Password grade: " ..  letterGrade ..  "\n")
 
 end
 fetchReportCard()
