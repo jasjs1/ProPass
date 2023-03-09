@@ -32,22 +32,26 @@ local function getUserInput()
     io.write("Recipients email: ")
     local recipientsEmail = io.read()
 
-    return emailOrUsername, sharedPassword, recipientsEmail
+    io.write("What site is the password used on: ")
+    local passwordWebHost = io.read()
+
+    return emailOrUsername, sharedPassword, recipientsEmail, passwordWebHost
 end
 
-local emailOrUsername, sharedPassword, recipientsEmail = getUserInput()
-local function writeToFile(emailOrUsername, sharedPassword, recipientsEmail)
+local emailOrUsername, sharedPassword, recipientsEmail, passwordWebHost = getUserInput()
+local function writeToFile(emailOrUsername, sharedPassword, recipientsEmail, passwordWebHost)
 
     local file = io.open("sharedPassword.txt", "w")
     file:write("Email/username: " .. emailOrUsername .. "\n")
     file:write("Password: " .. sharedPassword .. "\n")
     file:write("Recipients email: " .. recipientsEmail .. "\n")
+    file:write("Password is used on: " .. passwordWebHost .. "\n")
     file:close()
 
     print("Shared password created!")
 
 end
-writeToFile(emailOrUsername, sharedPassword, recipientsEmail)
+writeToFile(emailOrUsername, sharedPassword, recipientsEmail, passwordWebHost)
 
 while true do 
 
