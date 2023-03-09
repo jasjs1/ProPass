@@ -4,9 +4,31 @@
 
 local function combineFuncs()
     
-    io.write("Account email/username: ")
-    local emailOrUsername = io.read()
-
+    -- continue with the rest of your code here
+    
+    repeat
+        io.write("Email: ")
+        local email = io.read()
+      
+        -- Check if the email matches the pattern
+        if email:match(".+@.+%.com$") or email:match(".+@.+%.org$") 
+        or email:match(".+@.+%.edu$")
+        or email:match(".+@.+%.net$")
+        or email:match(".+@.+%.io$")
+        or email:match(".+@.+%.me$")
+        or email:match(".+@.+%.ca$")
+        or email:match(".+@.+%.tech$")
+        or email:match(".+@.+%.ai$")
+        or email:match(".+@.+%.studio$")
+        or email:match(".+@.+%.gov$")
+        then
+          -- Valid email address
+          break
+        else
+          -- Invalid email address
+                print("Invalid email address. Please enter a valid email address.")
+        end
+      until false
     io.write("Password: ")
     local sharedPassword = io.read()
 
@@ -14,7 +36,7 @@ local function combineFuncs()
     local recipientsEmail = io.read()
 
     local file = io.open("sharedPassword.txt", "w")
-    file:write("Email/username: " .. emailOrUsername .. "\n")
+    file:write("Email/username: " .. email .. "\n")
     file:write("Password: " .. sharedPassword .. "\n")
     file:write("Recipients email: " .. recipientsEmail .. "\n")
     file:close()
@@ -23,8 +45,14 @@ end
 
 local function getUserInput()
 
-    io.write("Email/username: ")
-    local emailOrUsername = io.read()
+    local email = ""
+    while not email:match(".+@.+%..+") do
+      io.write("Email: ")
+      email = io.read()
+      if not email:match(".+@.+%..+") then
+        print("Invalid email address. Please enter a valid email address.")
+      end
+    end
 
     io.write("Password: ")
     local sharedPassword = io.read()
@@ -32,17 +60,18 @@ local function getUserInput()
     io.write("Recipients email: ")
     local recipientsEmail = io.read()
 
+
     io.write("What site is the password used on: ")
     local passwordWebHost = io.read()
 
-    return emailOrUsername, sharedPassword, recipientsEmail, passwordWebHost
+    return email, sharedPassword, recipientsEmail, passwordWebHost
 end
 
-local emailOrUsername, sharedPassword, recipientsEmail, passwordWebHost = getUserInput()
-local function writeToFile(emailOrUsername, sharedPassword, recipientsEmail, passwordWebHost)
+local email, sharedPassword, recipientsEmail, passwordWebHost = getUserInput()
+local function writeToFile(email, sharedPassword, recipientsEmail, passwordWebHost)
 
     local file = io.open("sharedPassword.txt", "w")
-    file:write("Email/username: " .. emailOrUsername .. "\n")
+    file:write("Email/username: " .. email .. "\n")
     file:write("Password: " .. sharedPassword .. "\n")
     file:write("Recipients email: " .. recipientsEmail .. "\n")
     file:write("Password is used on: " .. passwordWebHost .. "\n")
@@ -51,7 +80,7 @@ local function writeToFile(emailOrUsername, sharedPassword, recipientsEmail, pas
     print("Shared password created!")
 
 end
-writeToFile(emailOrUsername, sharedPassword, recipientsEmail, passwordWebHost)
+writeToFile(email, sharedPassword, recipientsEmail, passwordWebHost)
 
 while true do 
 
