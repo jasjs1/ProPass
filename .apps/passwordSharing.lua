@@ -54,8 +54,16 @@ local function getUserInput()
       end
     end
 
-    io.write("Password: ")
-    local sharedPassword = io.read()
+    repeat
+        print("Password to share (8-100 characters):")
+        local sharedPassword = io.read()
+
+        if #sharedPassword < 8 or #sharedPassword > 100 then
+            print("Password must be between 8 to 100 characters.")
+        else
+            break
+        end
+    until false
 
     io.write("Recipients email: ")
     local recipientsEmail = io.read()
