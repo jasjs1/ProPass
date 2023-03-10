@@ -1,8 +1,8 @@
 ---
 name: 'Feature Request'
-about: 'request a feature through issues'
-title: ''
-labels:
+about: 'Create a feature request, through a GitHub Issue.'
+title: 'Feature Request'
+labels: feature request
 
 ---
 
