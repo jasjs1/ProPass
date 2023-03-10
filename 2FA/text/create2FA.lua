@@ -6,3 +6,4 @@ twoFactorCode = io.input():read()
 
 file:write(twoFactorCode)
 file:close()
+print("2FA was created.")
