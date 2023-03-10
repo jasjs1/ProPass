@@ -14,6 +14,37 @@ if factorAuthenticationFile == nil then
     end
 end
 
+local accountFile = io.open("userAccountData.txt")
+
+if accountFile == nil then
+    print("")
+    print("You need to have an account to use ProPass Authenticator")
+    print("Type !help for detials")
+
+    local input = io.read()
+
+    if input == "!help" then
+        print("To create an account file path: account/.singupOrLogin/.signup.lua")
+        return
+    end
+end
+
+local premFile = io.open("subscriptionInfo.txt")
+
+if premFile == nil then
+    print("")
+    print("You need to have a ProPass Preimum subscription to use ProPass Authenticator.")
+    print("Type '!help' for details")
+
+    local input = io.read()
+
+    if input == "!help" then
+        print("Path: premium/getPreimum.lua")
+        return
+    end
+end
+
+
 
 local function newAuthentication()
 
