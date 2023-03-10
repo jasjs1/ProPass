@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+  - name: Feature Request
+    url: https://github.com/jSagvold28/ProPass/blob/main/.github/ISSUE_TEMPLATE/fq.md
+    about: Create a feature request, through a GitHub Issue.
   - name: Create PR (pull request)
     url: https://github.com/jSagvold28/ProPass/pulls
     about: Create a PR for your implementation to be pushed to production.
