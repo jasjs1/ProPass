@@ -97,6 +97,7 @@ while true do
     local input = io.read()
 
     if input == "master password" then
+        masterPassword()
     elseif input == "2fa" then
         create2FA()
     elseif input == "mfa" then
