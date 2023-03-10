@@ -1,166 +1,129 @@
-local function activeNotifications()
-    local MFAFile = io.open("MFA.txt", "r")
-    local twoFactorFile = io.open("2FactorCode.txt", "r")
-    local masterPasswordFile = io.open("MasterPassword.txt", "r")
+local userEmail
+local age
+local signupPassword
+local twoFactorCode
+local securityQuestion
 
-    print("ACTIVE NOTIFICATIONS:")
-    print("")
-
-    if MFAFile == nil then
-        print(
-            "Consider creating a MFA (multi-factor-authentication) code for extra security")
-        print("")
-    end
-
-    if twoFactorFile == nil then
-        print(
-            "Consider making a 2FA (two-factor-authentication) to add extra security to your account.")
-        print("")
-    end
-
-    if masterPasswordFile == nil then
-        print(
-            "Consider making a master password to add added security to your account when you need to regain access.")
-        print("")
-    end
-
-    if MFAFile ~= nil then MFAFile:close() end
-
-    if twoFactorFile ~= nil then twoFactorFile:close() end
-
-    if masterPasswordFile ~= nil then masterPasswordFile:close() end
-
-    -- move the 'else' statement inside the last 'if' statement
-    if MFAFile ~= nil or twoFactorFile ~= nil or masterPasswordFile ~= nil then
-        print("There are active security related notifications.")
-    end
-end
-
-local subscriptionFile = io.open("subscriptionInfo.txtsubscriptionInfo.txt")
-
-if subscriptionFile == nil then
-    print("")
-    print("You need a ProPass Premium subscription to use SecurityCenter. Print type !help for an explanation")
-    print("")
-    
+local function promptUser()
     repeat
-        local input = io.read()
-        if input == "!help" then
-            print("")
-            print("To create a ProPass Preimum subscription - folder path: preimum/getPreimum.lua")
-            return
+        print("Email:")
+        local userEmail = io.read()
+
+        if userEmail:match(".+@.+%.com$") or userEmail:match(".+@.+%.org$") 
+        or userEmail:match(".+@.+%.edu$")
+        or userEmail:match(".+@.+%.net$")
+        or userEmail:match(".+@.+%.io$")
+        or userEmail:match(".+@.+%.me$")
+        or userEmail:match(".+@.+%.ca$")
+        or userEmail:match(".+@.+%.co")
+        or userEmail:match(".+@.+%.tech$")
+        or userEmail:match(".+@.+%.ai$")
+        or userEmail:match(".+@.+%.studio$")
+        or userEmail:match(".+@.+%.gov$")
+        then
+            break
         else
-            print("")
-            print("You must have a ProPass Premium subscription to use SecurityCenter. Print type !help for an explanation")
-            print("")
+            print("Invalid email address. Please use a proper TLD, if you don't know what a TLD is, please check tld.md")
         end
-    until input == "!help"
-end
+    until false
 
-local accountFile = io.open("userAccountData.txt")
+    print("Age")
+    age = tonumber(io.read())
 
-if accountFile == nil then
-    print("")
-    print("You need to have an active ProPass account to use Security Center. Type !help to get extra information.")
-    print("")
-    
+    if age and age <= 12 then
+        print("You are not able to use ProPass. You must be be 13 or older.")
+        return
+    end
+
     repeat
-        local input = io.read()
-        if input == "!help" then
-            print("")
-            print("To create a ProPass account - folder path: account/.signupOrLogin/.signup.lua")
-            return
+        print("Password (8-100 characters):")
+        local subscriptionPassword = io.read()
+
+        if #subscriptionPassword < 8 or #subscriptionPassword > 100 then
+            print("Password must be between 8 to 100 characters.")
         else
-            print("")
-            print("You need to have an active ProPass account to use Security Center. Type !help to get extra information.")
-            print("")
+            break
         end
-    until input == "!help"
+    until false
+
+    print("Do you want to have 2 Factor Authentication on?")
+    twoFactorOn = nil
 end
 
+promptUser()
 
--- local subscriptionFile = io.open("subscriptionInfo.txt")
+local input = io.read()
 
--- local accountFile = io.open("userAccountData.txt")
-
--- if subscriptionFile == nil and accountFile == nil then
---     print("")
---     print("You need an active ProPass Premium subscription and account to use Security Center.")
---     print("")
---     return
--- elseif subscriptionFile == nil then
---     print("")
---     print("You need a ProPass Premium subscription to use Security Center. Please create a subscription to use this.")
---     print("")
---     return
--- elseif accountFile == nil then
---     print("")
---     print("You need an active ProPass account to use Security Center.")
---     print("")
---     return
--- end
-
-
-
-
-
-activeNotifications()
-
-local function createMFA()
-
-    io.write("MFA: ")
-    local MFACode = io.read()
-
-    local MFAFILE = io.open("MFA.txt", "w")
-
-    MFAFILE:write("MFA: " .. masterPassword .. "\n")
-    MFAFILE:write("Date Created: " .. os.date("%M_%d_y_%H_%m"))
-
-    MFAFILE:close()
-
-    print("Master password file was created.")
-
-end
-
-local function create2FA()
+local function enable2FA()
+    io.write("Your 2FA code: ")
+    twoFactorCode = io.read()
 
     file = io.open("2FactorCode.txt", "w")
-
-    io.output():write("Your 2FA code: ")
-    twoFactorCode = io.input():read()
-
     file:write(twoFactorCode)
     file:close()
-
-    print("2FA was created!")
-
 end
 
-local function masterPassword()
-
-    io.write("Master Password: ")
-    local masterPassword = io.read()
-
-    local masterPasswordFile = io.open("MasterPassword.txt", "w")
-    
-    masterPasswordFile:write("Master Password: " .. masterPassword .. "\n")
-    masterPasswordFile:write("Date Created: " .. os.date("%m_%d_%y_%H_%m"))
-    
-    masterPasswordFile:close()
-
-    print("Master password file created! File name: MasterPassword.txt")
+if input == "yes" then
+    enable2FA()
 end
 
-while true do
+local function recoveryCode()
+    print("Recovery Code (required)")
+    print("")
+    io.write("Your Recover Code: ")
+    local recoveryCode = io.read()
+
+    local recoveryCodeFile = io.open("RecoveryMode.txt", "w")
+    recoveryCodeFile:write(recoveryCode)
+    recoveryCodeFile:close()
+end
+recoveryCode()
+
+local function fetchProvidedData()
+    print("Validate that the information below is correct:")
+    print("")
+    print("Email: " .. userEmail)
+    print("Age: " .. age)
+    print("Password: " .. signupPassword)
+    print("2FA: " .. twoFactorCode)
+    print("Security Queston: " .. securityQuestion)
+    print("Recovery Code: " .. recoveryCode)
+
+    print("Type 'yes' if the information below is correct.")
+
     local input = io.read()
 
-    if input == "master password" then
-        masterPassword()
-    elseif input == "2fa" then
-        create2FA()
-    elseif input == "mfa" then
-        createMFA()
-    elseif input == "exit" then
-        break -- exit the while loop
+    if input == "yes" then
+        local file = io.open("userAccountData.txt", "w")
+
+        file:write("Email: " .. email .. "\n")
+        file:write("Age: " .. age .. "\n")
+        file:write("Password: " .. signupPassword .. "\n")
+        file:write("2FA code: " .. twoFactorCode .. "\n")
+        file:write("Security Queston: " .. securityQuestion .. "\n")
+        file:write("Recovery code: " .. recoveryCode .. "\n")
+
+        file:close()
+
+        print("")
+        print("ProPass account created! Welcome to a new way to get passwords!")
+    else
+        print("")
+        print("ProPass account was not created.")
+
+        if input == "no" then
+            print("")
+            print("ProPass was not created. This was caused by you inputting no to the validate information")
+        end
     end
+end
+
+print("")
+print("Do you agree to the ProPass TOS and privacy policy?")
+print("Type 'yes' if you do agree.")
+
+local input = io.read()
+
+if input == "yes" then
+    fetchProvidedData()
 end
