@@ -6,23 +6,19 @@ labels: feature request
 
 ---
 
-### Describe the Issue
-Please describe what is happening
+### Feature request:
+Be descriptive, or you could go to the summarize and then you can summarize insted.
+
+## Image
+Add image below if wanted.
 
 
-### Reproduction Steps
-Please provide a set of steps to reproduce the issue
-1. 
 
-### Expected Behavior
+### Summarize request:
+Be short and consise, but yet telling the request in detail so I can do my best to implement it.
 
-### Path:
-Folder path of bug:
+### Others:
+Note: These are optinal fields
 
-
-### Environment
-
-Please include relevant information about your system
-
-* Operating System:
-* Other Notes:
+Email: 
+Notes: 
