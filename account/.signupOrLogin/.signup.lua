@@ -54,7 +54,7 @@ if subscriptionFile == nil then
             print("You must have a ProPass Premium subscription to use SecurityCenter. Print type !help for an explanation")
             print("")
         end
-    until input == "yes"
+    until input == "!help"
 end
 
 local accountFile = io.open("userAccountData.txt")
@@ -75,7 +75,7 @@ if accountFile == nil then
             print("You need to have an active ProPass account to use Security Center. Type !help to get extra information.")
             print("")
         end
-    until input == "yes"
+    until input == "!help"
 end
 
 
