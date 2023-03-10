@@ -7,18 +7,19 @@ labels: feature request
 ---
 
 ### Feature request:
-Be descriptive, or you could go to the summarize and then you can summarize insted.
+Be descriptive, or you could go to the summarize, and then you can summarize instead.
+
 
 ## Image
-Add image below if wanted.
+Add an image or video below of the feature you are wishing to add.
 
 
 
 ### Summarize request:
-Be short and consise, but yet telling the request in detail so I can do my best to implement it.
+Be short and concise, but yet tell the request in detail so I can do my best to implement it.
 
 ### Others:
-Note: These are optinal fields
+Note: These are optional fields
 
 Email: 
 Notes: 
