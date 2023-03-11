@@ -55,6 +55,8 @@ local function validateInformationAndWriteToFile()
     file:write("Is password shared: " .. isPasswordShared .. "\n")
     file:write("Does password expire: " .. doesPasswordExpire .. "\n")
     file:write("Other notes: " .. otherNotes .. "\n")
+    -- file:write("Date created: " .. os.date('%Y-%m-%d %H:%M:%S') .. "\n")
+    file:write("Date created: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
     file:write("\n")
 
     file:close()
