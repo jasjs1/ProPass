@@ -36,7 +36,7 @@ local function storeAndValidateEmailData()
 
     if input == "yes" then
 
-        local file = io.open("emailVault-prem.txt", "a")
+        local file = io.open("email_vault-notshared", "a")
 
         file:write("\n")
         file:write("Acount username: " .. accountUsername .. "\n")
