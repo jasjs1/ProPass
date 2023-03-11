@@ -1,4 +1,4 @@
--- declare variables outside of functions
+
 local passwordForVaulting
 local isPasswordShared
 local doesPasswordExpire
