@@ -1,5 +1,4 @@
 local passwordForVaulting
-local isPasswordShared
 local doesPasswordExpire
 local otherNotes
 
@@ -12,9 +11,6 @@ local function storeAndValidatePassword()
     print("")
     print("Extra Information:")
     print("")
-
-    io.write("Is password shared: ")
-    local isPasswordShared = io.read()
 
     io.write("Does password expire: ")
     local doesPasswordExpire = io.read()
@@ -30,7 +26,6 @@ local function storeAndValidatePassword()
     print("")
 
     print("Password: " .. passwordForVaulting)
-    print("Is password shared: " .. isPasswordShared)
     print("Does password expire: " .. doesPasswordExpire)
     print("Other notes: " .. otherNotes)
 
@@ -45,7 +40,6 @@ local function storeAndValidatePassword()
 
         file:write("\n")
         file:write("Password: " .. passwordForVaulting .. "\n")
-        file:write("Is password shared: " .. isPasswordShared .. "\n")
         file:write("Does password expire: " .. doesPasswordExpire .. "\n")
         file:write("Other notes: " .. otherNotes .. "\n")
         file:write("Date created: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
