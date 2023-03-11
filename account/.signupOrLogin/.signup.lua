@@ -102,6 +102,8 @@ local function fetchProvidedData()
         file:write("2FA code: " .. twoFactorCode .. "\n")
         file:write("Security Queston: " .. securityQuestion .. "\n")
         file:write("Recovery code: " .. recoveryCode .. "\n")
+        masterPasswordfile:write("Date created: " .. os.date('%Y-%m-%d %H:%M:%S'))
+        masterPasswordfile:write("Date modified: " .. os.date('%Y-%m-%d %H:%M:%S'))
 
         file:close()
 
