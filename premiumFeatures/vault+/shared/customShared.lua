@@ -42,6 +42,9 @@ local function customShared()
     io.write("Field: " .. field7 .. "Contents: ")
     local contents7 = io.read("*line")
 
+    io.write("Recipiants email: ")
+    local recipiantsEmail = io.read()
+
     -- create file
 
     io.write("File name: ")
@@ -52,6 +55,8 @@ local function customShared()
 
     local file = io.open(filename .. "." .. filetype, "w")
 
+    file:write("\n")
+
     file:write(field1 .. " " .. contents1 .. "\n")
     file:write(field2  .. " " .. contents2 .. "\n")
     file:write(field3  .. " " .. contents3 .. "\n")
@@ -59,6 +64,11 @@ local function customShared()
     file:write(field5  .. " " .. contents5 .. "\n")
     file:write(field6  .. " " .. contents6 .. "\n")
     file:write(field7  .. " " .. contents7 .. "\n")
+    file:write("Recipiants email: " .. recipiantsEmail)
+    file:write("Date created: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
+    file:write("Date modified: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
+    
+    file:write("\n")
 
     file:close()
 
