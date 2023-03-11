@@ -47,12 +47,25 @@ end
 
 
 local function newAuthentication()
+    local accountFile = io.open("userAccountData.txt", "r")
+    local signupPassword = accountFile:read("*all")
+    accountFile:close()
+
+    io.write("Account password: ")
+    local authAccPassword = io.read()
+
+    if signupPassword == authAccPassword then
+        print("Passsowrd successful")
+    else
+        print("Wrong password, please try again. Run this file again to retry.")
+        return
+    end
 
     io.write("Application for authentication: ")
     local appForAuthentication = io.read()
 
-    io.write("Authenticaiton code: ")
-    local authencationCode = io.read()
+    io.write("Authentication code: ")
+    local authenticationCode = io.read()
 
     io.write("Backup code: ")
     local backupCode = io.read()
@@ -62,12 +75,12 @@ local function newAuthentication()
     local writeAuthFile = io.open("app_authenticator.txt", "a")
 
     writeAuthFile:write("Application: " .. appForAuthentication .. "\n")
-    writeAuthFile:write("Auth code: " .. authencationCode .. "\n")
+    writeAuthFile:write("Auth code: " .. authenticationCode .. "\n")
     writeAuthFile:write("Backup code: " .. backupCode .. "\n")
 
     writeAuthFile:close()
-
 end
+
 
 local function authenticateUser()
     io.write("Enter application name: ")
