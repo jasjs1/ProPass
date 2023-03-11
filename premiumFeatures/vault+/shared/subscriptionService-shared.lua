@@ -1,4 +1,5 @@
 local subscriptionService
+
 local recipiantsEmail
 local subscriptionType 
 
