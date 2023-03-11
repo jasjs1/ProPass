@@ -1,5 +1,4 @@
 local subscriptionService
-
 local recipiantsEmail
 local subscriptionType 
 
@@ -49,7 +48,7 @@ local function storeAndWrite()
 
     if input == "yes" then
 
-        local file = io.open("subscriptionVault-prem.txt", "a")
+        local file = io.open("subscriptionService_vault-shared.txt", "a")
 
         file:write("\n")
         file:write("Subscription service website: " .. subscriptionService .. "\n")
