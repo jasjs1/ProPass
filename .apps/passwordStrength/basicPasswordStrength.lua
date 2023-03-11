@@ -4,7 +4,8 @@
 
     This file is graded on a grading scale of (A, B, C, D, F)
     If you DONT want to have a letter grade scale go to the basicPasswordStrength.lua file, this file is scale on weak - extremly strong scale.
-]] 
+
+]]
 
 function passwordStrength(password)
     local strength = 0
@@ -65,14 +66,16 @@ local function gradePassword(strength)
 
         print(graph_with_value)
 
-        print("Hey there, it looks like your password is pretty weak. Would you like to create a new one? Type 'new' to get a new password.")
+        print(
+            "Hey there, it looks like your password is pretty weak. Would you like to create a new one? Type 'new' to get a new password.")
 
         local input = io.read()
 
         if input == "new" then
             local function newPass()
                 local function generateANewPassword(length)
-                    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+!@#$%^&*();"
+                    local charset =
+                        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+!@#$%^&*();"
                     local password = ""
                     for i = 1, length do
                         local index = math.random(1, string.len(charset))
@@ -80,67 +83,70 @@ local function gradePassword(strength)
                     end
                     return password
                 end
-        
+
                 local function copyToClipboard(str)
                     -- Determine the platform
                     local isWindows = package.config:sub(1, 1) == '\\'
-        
+
                     -- Create a temporary file
                     local tmpfile = os.tmpname()
-        
+
                     -- Write the string to the file
                     local file = io.open(tmpfile, "w")
                     file:write(str)
                     file:close()
-        
+
                     -- Execute the copy command
                     if isWindows then
-                        os.execute("cmd.exe /c echo.|set /p=\"" .. tmpfile .. "\" | clip")
+                        os.execute("cmd.exe /c echo.|set /p=\"" .. tmpfile ..
+                                       "\" | clip")
                     else
                         os.execute("cat " .. tmpfile .. " | pbcopy")
                     end
-        
+
                     -- Delete the temporary file
                     os.remove(tmpfile)
                 end
-        
+
                 io.write("Enter desired password length (between 16 and 80): ")
                 local length = tonumber(io.read())
-        
+
                 if not length or length < 16 or length > 80 then
-                    print("Invalid password length. Please enter a number between 16 and 80 characters.")
+                    print(
+                        "Invalid password length. Please enter a number between 16 and 80 characters.")
                     return
                 end
-        
+
                 io.write("Where will the password be used: ")
                 local passwordWebHost = io.read()
-        
+
                 io.write("Tags: ")
                 local tags = io.read()
-        
+
                 local password = generateANewPassword(length)
-        
+
                 print("Generated password: " .. password)
                 copyToClipboard(password)
                 print("Password copied to clipboard!")
-                print("Hey there, your new passwords lookin more secure! Congrats 🎉🥳")
-        
+                print(
+                    "Hey there, your new passwords lookin more secure! Congrats 🎉🥳")
+
                 local input = io.read()
-        
+
                 local file = io.open("savedPassword.txt", "a")
                 file:write("...\n")
                 file:write("Generated saved password: " .. password .. "\n")
-                file:write("Place that password is used: " .. passwordWebHost .. "\n")
+                file:write("Place that password is used: " .. passwordWebHost ..
+                               "\n")
                 file:write("Tags: " .. tags .. "\n")
                 file:write("Audit date: " .. os.date("$M_%d_%Y_%H_%M") .. "\n")
                 file:write("...\n")
                 file:close()
 
             end
-        
+
             newPass()
         end
-        
 
     elseif strength == 3 then
         print("Modeartly Weak")
@@ -158,7 +164,87 @@ local function gradePassword(strength)
 
         print(graph_with_value)
 
-        print("Hey there, it looks like your pasword is pretty weak. Would you like to create a new one. Type 'new' to get a new password.")
+        print(
+            "Hey there, it looks like your password is pretty weak. Would you like to create a new one? Type 'new' to get a new password.")
+
+        local input = io.read()
+
+        if input == "new" then
+            local function newPass()
+                local function generateANewPassword(length)
+                    local charset =
+                        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+!@#$%^&*();"
+                    local password = ""
+                    for i = 1, length do
+                        local index = math.random(1, string.len(charset))
+                        password = password .. string.sub(charset, index, index)
+                    end
+                    return password
+                end
+
+                local function copyToClipboard(str)
+                    -- Determine the platform
+                    local isWindows = package.config:sub(1, 1) == '\\'
+
+                    -- Create a temporary file
+                    local tmpfile = os.tmpname()
+
+                    -- Write the string to the file
+                    local file = io.open(tmpfile, "w")
+                    file:write(str)
+                    file:close()
+
+                    -- Execute the copy command
+                    if isWindows then
+                        os.execute("cmd.exe /c echo.|set /p=\"" .. tmpfile ..
+                                       "\" | clip")
+                    else
+                        os.execute("cat " .. tmpfile .. " | pbcopy")
+                    end
+
+                    -- Delete the temporary file
+                    os.remove(tmpfile)
+                end
+
+                io.write("Enter desired password length (between 16 and 80): ")
+                local length = tonumber(io.read())
+
+                if not length or length < 16 or length > 80 then
+                    print(
+                        "Invalid password length. Please enter a number between 16 and 80 characters.")
+                    return
+                end
+
+                io.write("Where will the password be used: ")
+                local passwordWebHost = io.read()
+
+                io.write("Tags: ")
+                local tags = io.read()
+
+                local password = generateANewPassword(length)
+
+                print("Generated password: " .. password)
+                copyToClipboard(password)
+                print("Password copied to clipboard!")
+                print(
+                    "Hey there, your new passwords lookin more secure! Congrats 🎉🥳")
+
+                local input = io.read()
+
+                local file = io.open("savedPassword.txt", "a")
+                file:write("...\n")
+                file:write("Generated saved password: " .. password .. "\n")
+                file:write("Place that password is used: " .. passwordWebHost ..
+                               "\n")
+                file:write("Tags: " .. tags .. "\n")
+                file:write("Audit date: " .. os.date("$M_%d_%Y_%H_%M") .. "\n")
+                file:write("...\n")
+                file:close()
+
+            end
+
+            newPass()
+        end
 
         local input = io.read()
 
