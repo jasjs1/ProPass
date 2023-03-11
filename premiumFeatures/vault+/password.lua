@@ -1,33 +1,27 @@
-
 local passwordForVaulting
 local isPasswordShared
 local doesPasswordExpire
 local otherNotes
 
-local function storePassword()
-
+local function storeAndValidatePassword()
     print("") -- Spacer
 
     io.write("Password for vaulting: ")
-    passwordForVaulting = io.read()
+    local passwordForVaulting = io.read()
 
     print("")
     print("Extra Information:")
     print("")
 
     io.write("Is password shared: ")
-    isPasswordShared = io.read()
+    local isPasswordShared = io.read()
 
     io.write("Does password expire: ")
-    doesPasswordExpire = io.read()
+    local doesPasswordExpire = io.read()
 
     io.write("Other notes: ")
-    otherNotes = io.read()
-end
+    local otherNotes = io.read()
 
-storePassword()
-
-local function validateInformationAndWriteToFile()
     print("")
     print("")
 
@@ -46,25 +40,40 @@ local function validateInformationAndWriteToFile()
     local input = io.read()
 
     if input == "yes" then
+        -- Write data to file
+        local file = io.open("passwordVault-prem.txt", "a")
 
-    -- Write data to file
-    local file = io.open("passwordVault-prem.txt", "a")
+        file:write("\n")
+        file:write("Password: " .. passwordForVaulting .. "\n")
+        file:write("Is password shared: " .. isPasswordShared .. "\n")
+        file:write("Does password expire: " .. doesPasswordExpire .. "\n")
+        file:write("Other notes: " .. otherNotes .. "\n")
+        file:write("Date created: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
+        file:write("Date modified: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
+        file:write("\n")
 
-    file:write("\n")
-    file:write("Password: " .. passwordForVaulting .. "\n")
-    file:write("Is password shared: " .. isPasswordShared .. "\n")
-    file:write("Does password expire: " .. doesPasswordExpire .. "\n")
-    file:write("Other notes: " .. otherNotes .. "\n")
-    -- file:write("Date created: " .. os.date('%Y-%m-%d %H:%M:%S') .. "\n")
-    file:write("Date created: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
-    file:write("Date modified: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
-    file:write("\n")
+        file:close()
 
-    file:close()
-
-    print("File created! Check the explorer for: passwordVault-prem.txt")
-
+        print("File created! Check the explorer for: passwordVault-prem.txt")
     end
 end
 
-validateInformationAndWriteToFile()
+local subscriptionFile = io.open("subscriptionInfo.txt")
+
+if subscriptionFile == nil then
+    print("You need a ProPass Premium subscription to use SecurityCenter. Please create a subscription to use this.")
+    print("Type '!help' to get more information.")
+
+    local input = io.read()
+
+    if input == "!help" then
+        print("")
+        print("Folder path for Premium: premium/getPremium.lua")
+        print("")
+        return
+    end
+else
+    subscriptionFile:close()
+    storeAndValidatePassword()
+end
+
