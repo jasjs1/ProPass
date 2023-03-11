@@ -36,7 +36,7 @@ local function storeAndValidatePassword()
 
     if input == "yes" then
         -- Write data to file
-        local file = io.open("passwordVault-prem.txt", "a")
+        local file = io.open("password_vault-notshared.txt", "a")
 
         file:write("\n")
         file:write("Password: " .. passwordForVaulting .. "\n")
