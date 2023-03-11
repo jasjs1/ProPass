@@ -23,9 +23,13 @@ local function getNewPass()
     io.write("Where will the password be used: ")
     local passwordWebHost = io.read()
 
+    io.write("Tags: ")
+    local tags = io.read()
+
     local password = generateANewPassword(length)
 
     print("If you would like to generate a new password. Type 'new'.")
+    print("") -- spacer
     print("Generated password: " .. password)
 
     function copyToClipboard(str)
@@ -71,6 +75,7 @@ local function getNewPass()
         file:write("..." .. "\n")
         file:write("Generated saved password: " .. password .. "\n")
         file:write("Place that password is used: " .. passwordWebHost .. "\n")
+        file:write("Tags: " .. tags .. "\n")
         file:write("Audit date: " .. os.date("$M_%d_%yyyy_%H_%m"))
         file:write("..." .. "\n")
         file:close()
