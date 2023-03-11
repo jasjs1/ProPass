@@ -57,6 +57,7 @@ local function validateInformationAndWriteToFile()
     file:write("Other notes: " .. otherNotes .. "\n")
     -- file:write("Date created: " .. os.date('%Y-%m-%d %H:%M:%S') .. "\n")
     file:write("Date created: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
+    file:write("Date modified: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
     file:write("\n")
 
     file:close()
