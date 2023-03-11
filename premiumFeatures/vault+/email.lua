@@ -4,7 +4,7 @@ local onlinePlatform -- This is where the email is used on the internet
 local emailForStore
 local passwordForStore
 
-local function storeEmailData()
+local function storeAndValidateEmailData()
 
     io.write("Account username: ")
     accountUsername = io.read()
@@ -18,10 +18,6 @@ local function storeEmailData()
     io.write("Password for account: ")
     passwordForStore = io.read()
 
-end
-storeEmailData()
-
-local function validateInformationAndWriteDataToFile()
     print("") -- spacer
     print("") -- spacer
 
@@ -56,4 +52,22 @@ local function validateInformationAndWriteDataToFile()
 
     end
 end
-validateInformationAndWriteDataToFile()
+
+local subscriptionFile = io.open("subscriptionInfo.txt")
+
+if subscriptionFile == nil then
+    print("You need a ProPass Premium subscription to use Vault+. Please create a subscription to use this.")
+    print("Type '!help' to get more information.")
+
+    local input = io.read()
+
+    if input == "!help" then
+        print("")
+        print("Folder path for Premium: premium/getPremium.lua")
+        print("")
+        return
+    end
+else
+    subscriptionFile:close()
+    storeAndValidateEmailData()
+end
