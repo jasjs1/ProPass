@@ -39,6 +39,8 @@ local function storeAndWrite()
         file:write("Web URL: " .. webURL .. "\n")
         file:write("Password for account: " .. password .. "\n")
         file:write("Recipient email: " .. recipientEmail .. "\n")
+        file:write("Date created: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
+        file:write("Date modified: " .. os.date('%M-%d-%y %H:%M:%S') .. "\n")
 
         file:close()
         return true
