@@ -16,7 +16,7 @@ local function getNewPass()
     local length = tonumber(io.read())
 
     if not length or length < 8 or length > 80 then
-        print("Invalid password length. Please enter a number between 8 and 80 characters.")
+        print("Invalid password length. Please enter a password length between 8 and 80 characters.")
         return 
     end
 
