@@ -50,19 +50,23 @@ ProPass is not looking to hire any employees, thank you for expressing interest 
 
 # Premium Signup TLD (top-level-domains)
 
-## Supported domains:
-.com
-.org
-.edu
-.net
-.io
-.me
-.ca
-.tech
-.ai
-.studios
-.gov
-
-last updated March 6th, 2023 at 7:12am
+## Supported TLD domains:
+* .com
+* .org
+* .edu
+* .net
+* .io
+* .me
+* .ca
+* .tech
+* .ai
+* .studios
+* .gov
 
 Please create a Issue if you would like me to add any more TLD support for signup.
+
+# Instilation
+
+## Ways:
+1. Install by downloading the .zip file (will not be up to date)
+2. Clone repo
