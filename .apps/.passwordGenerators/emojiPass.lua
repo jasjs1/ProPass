@@ -2,7 +2,7 @@
 
 local function generatePassword(length)
     local charset =
-      "🌞🌈🌺🍕🎉💻📚🏊‍♀️🌊🐶🐱🦊🐻🐘🦒🦔🌲🌻🍁🍂🎃🦇👻💀🌙🚀🛸💫🌌🎵🎭🎬🎨🎲🔮💡🔑💰💸🎁💌💕🥰🤗😂👋🏼"
+      "🌞🌈🌺🍕🎉💻📚🏊‍♀️🌊🐶🐱🦊🐻🐘🦒🦔🌲🌻🍁🍂🎃🦇👻💀🌙🚀🛸💫🌌🎵🎭🎬🎨🎲🔮💡🔑💰💸🎁💌💕🥰🤗😂👋🏼🌶️😀😊😗😇"
     local password = ""
     for i = 1, length do
       local index = math.random(1, string.len(charset))
@@ -71,7 +71,7 @@ local function generatePassword(length)
     file:write("Password for: " .. passwordFor .. "\n")
     file:write("Login email: " .. providedLogin .. "\n")
     file:write("Is password shared: " .. isPaswordShared .. "\n")
-    file:write("Date created: " .. os.date("%M_%d_%y_%h_%m"))
+    file:write("Audit date:")
   
     file:close()
   end
@@ -98,6 +98,9 @@ local function generatePassword(length)
   
     return length, passwordFor, providedLogin, isPaswordShared
   end
+
+  
+  
   
   local function generateAndSavePassword()
     local length, passwordFor, providedLogin, isPaswordShared = promptUserForPassword()
