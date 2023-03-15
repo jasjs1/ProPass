@@ -1,118 +1,131 @@
-io.write("Corporation name: ")
-local corporationName = io.read()
+local corpName, corpEmail, corpPassword, corpWebsiteURL, corpNumberOfEmployees, corpAdminPin
 
-repeat
-  io.write("Corporation HQ email: ")
-  local corporationHQEmail = io.read()
+local function createCorperation()
 
-  -- Check if the email matches the pattern
-  if corporationHQEmail:match(".+@.+%.com$") or corporationHQEmail:match(".+@.+%.org$") 
-  or corporationHQEmail:match(".+@.+%.edu$")
-  or corporationHQEmail:match(".+@.+%.net$")
-  or corporationHQEmail:match(".+@.+%.io$")
-  or corporationHQEmail:match(".+@.+%.me$")
-  or corporationHQEmail:match(".+@.+%.ca$")
-  or corporationHQEmail:match(".+@.+%.tech$")
-  or corporationHQEmail:match(".+@.+%.ai$")
-  or corporationHQEmail:match(".+@.+%.studio$")
-  or corporationHQEmail:match(".+@.+%.gov$")
-  then
-    -- Valid email address
-    break
-  else
-    -- Invalid email address
-          print("Invalid email address. Please enter a valid email address.")
-  end
-until false
+    io.write("Corporation Name: ")
+    corpName = io.read()
 
-io.write("Corperation password: ")
-local corperationPassword = io.read()
+    repeat
+        io.write("Corporation Email: ")
+        corpEmail = io.read()
 
-io.write("Employee size: ")
-local employeeSize = io.read()
+        -- Check if the email matches the pattern
+        if corpEmail:match(".+@.+%.com$") or corpEmail:match(".+@.+%.org$") 
+        or corpEmail:match(".+@.+%.edu$")
+        or corpEmail:match(".+@.+%.net$")
+        or corpEmail:match(".+@.+%.io$")
+        or corpEmail:match(".+@.+%.me$")
+        or corpEmail:match(".+@.+%.ca$")
+        or corpEmail:match(".+@.+%.tech$")
+        or corpEmail:match(".+@.+%.ai$")
+        or corpEmail:match(".+@.+%.studio$")
+        or corpEmail:match(".+@.+%.gov$")
+        or corpEmail:match(".+@.+%.contact$")
+        then
+            -- Valid email address
+            break
+        else
+            -- Invalid email address
+            print("Invalid email address. Please enter a valid email address.")
+        end
+    until false
 
-io.write("Company website: ")
-local companyWebsite = io.read()
+    repeat
+        io.write("Password: (8-100 characters): ")
+        local corpPassword = io.read()
 
-io.write("Company type: ")
-local companyType = io.read()
+        if #corpPassword < 8 or #corpPassword > 100 then
+            print("Password must be between 8 and 100 characters.")
+        else
+            break
+        end
+    until false
 
-io.write("Admin Pin: ")
-local adminPin = io.read()
+    io.write("Corporation website URL: ")
+    corpWebsiteURL = io.read()
 
--- Billing information --
+    io.write("Number of Employees (can add more later): ")
+    corpNumberOfEmployees = io.read()
 
-io.write("Payment type: ")
-local paymentType = io.read()
+    io.write("Admin Pin: ")
+    corpAdminPin = io.read()
 
-io.write("Card Number: ")
-local cardNumber = io.read()
+    print("") -- spacer
 
--- End of billing information -- 
+    print("Would you like to have 2FA enabled. 2FA is a added security when loggin in. 2FA stands for two factor authentication. For more information check out the 2FA.md file.")
+    io.write("Type 'yes' if you would like to create a 2FA.")
 
-io.write("Other Notes: ")
-local otherNotes = io.read()
+    local input = io.read()
 
-local function createEmployee()
-  print("")
-  io.write("Employee name: ")
-  local employeeName = io.read()
+    if input == "yes" then
+        io.write("2FA code: ")
+        local twoFactorCode = io.read()
+    
+        local twoFactorAuthenticationFile = io.open("corp_2FA.txt", "w")
 
-  repeat
-    io.write("Employee email adress: ")
-    local employeeEmailAdress = io.read()
-  
-    -- Check if the email matches the pattern
-    if employeeEmailAdress:match(".+@.+%.com$") or employeeEmailAdress:match(".+@.+%.org$") 
-    or employeeEmailAdress:match(".+@.+%.edu$")
-    or employeeEmailAdress:match(".+@.+%.net$")
-    or employeeEmailAdress:match(".+@.+%.io$")
-    or employeeEmailAdress:match(".+@.+%.me$")
-    or employeeEmailAdress:match(".+@.+%.ca$")
-    or employeeEmailAdress:match(".+@.+%.tech$")
-    or employeeEmailAdress:match(".+@.+%.ai$")
-    or employeeEmailAdress:match(".+@.+%.studio$")
-    or employeeEmailAdress:match(".+@.+%.gov$")
-    then
-      -- Valid email address
-      break
-    else
-      -- Invalid email address
-      print("Invalid email address. Please enter a valid email address that ends with .com or .org.")
+        twoFactorAuthenticationFile:write(twoFactorCode)
+        twoFactorAuthenticationFile:close()
+        -- end
     end
-  until false
-
-  io.write("Employee password: ")
-  local employeePassword = io.read()
-
-  io.write("Employee role: ")
-  local employeeRole = io.read()
-
-  print("")
-  print("New employee created!")
-  print("To stop creating employees: type 'stop'")
-
-  local input = io.read()
-
-  if input == "stop" then
-    return employeeName, employeeEmail, employeePassword, employeeRole
-  else
-    return createEmployee()
-  end
 end
 
-local function writeEmployeeToFile()
-  local employeeName, employeeEmail, employeePassword, employeeRole = createEmployee()
+createCorperation()
 
-  local file = io.open("employeeFile.txt", "a")
+local function writeCorperationDataToFile()
+    print("")
+    print("Validate that the information below is correct:")
+    print("")
 
-  file:write("Employee name: " .. employeeName .. "\n")
-  file:write("Employee email: " .. employeeEmail .. "\n")
-  file:write("Employee password: " .. employeePassword .. "\n")
-  file:write("Employee role: " .. employeeRole .. "\n")
+    print("Corporation name: " .. corpName)
+    print("Corporation email: " .. corpEmail)
+    print("Corporation password: " .. corpPassword)
+    print("Corporation website URL: " .. corpWebsiteURL)
+    print("Corporation total number of employees: " .. corpNumberOfEmployees)
+    print("Admin Pin: " .. corpAdminPin)
 
-  file:close()
+    print("")
+    print("Type 'yes' if the information above is correct.")
 
-  print("Employee information written to file.")
+    local input = io.read()
+
+    if input == "yes" then
+        local file = io.open("corpAccount.txt", "w")
+
+        file:write("Corporation name: " .. corpName .. "\n")
+        file:write("Corporation email: " .. corpEmail .. "\n")
+        file:write("Corporation password: " .. corpPassword .. "\n")
+        file:write("Corporation website URL: " .. corpWebsiteURL .. "\n")
+        file:write("Corporation total number of employees: " .. corpNumberOfEmployees .. "\n")
+        file:write("Admin Pin: " .. corpAdminPin .. "\n")
+        file:write("Date Corporation joined ProTask: " .. os.date("%M-%D-%Y %H:%M:S") .. "\n")
+        file:write("Date last edited: " .. os.date("%M-%D-%Y %H:%M:S") .. "\n")
+
+        file:close()
+    end
 end
-writeEmployeeToFile()
+
+print("Press enter to write files.")
+
+-- write other data to files
+
+local function writeAdminPin()
+    os.execute("sleep 1")
+    print("Executing: writing Admin Pin to file...")
+
+    local file = io.open("corp_adminPin.txt", "w")
+
+    file:write(corpAdminPin .. "\n")
+    file:write("Date added: " .. os.date("%M-%d-%Y %H:%M:%S") .. "\n")
+    file:write("Date modified: " .. os.date("%M-%d-%Y %H:%M:%S") .. "\n")
+
+    file:close()
+
+    os.execute("sleep 0.6")
+    print("Created Admin Pin file. Check the explorer for: corp_adminPin.txt")
+    
+    print("") -- spacer
+
+    print("Welcome, " .. corpName .. "! Were exited to have you as a corperation using ProTask!")
+    print("To create an employee go to the addEmplyoee.lua file to do so")
+end
+writeAdminPin()
